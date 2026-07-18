@@ -1,0 +1,27 @@
+# Explicit, machine-readable list of which Book 1 classes are implemented.
+#
+# CI and scripts/check_manifest.py read this file as the single source of
+# truth for "what's built" — they do not discover implemented classes by
+# scanning for a tests/ directory or any other heuristic. A class is
+# implemented if and only if it's listed here, and listing it here commits
+# to every required artifact existing and passing.
+#
+# Adding a class here without its required artifacts is a CI failure, by
+# design (see scripts/check_manifest.py). Deleting a class's tests/
+# directory without removing it from this list is also a CI failure — the
+# manifest doesn't silently shrink to match reality.
+#
+# New entries are normally added by scripts/create_class.py --register,
+# which appends in place rather than reserializing this whole file, so
+# these header comments survive. If you edit this by hand, keep that in
+# mind before running any tool that round-trips it through a YAML dumper.
+
+implemented_classes:
+  - id: class-02-setting-up-the-claude-code-workspace
+    chapter: 2
+    tests_subdir: ch02
+
+  - id: class-03-instruction-architecture-and-claude-md
+    chapter: 3
+    tests_subdir: ch03
+    depends_on: class-02-setting-up-the-claude-code-workspace

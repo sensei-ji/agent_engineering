@@ -22,12 +22,13 @@ specific to this class — the things `pytest tests/ch03` cannot check.
    pastes in reference material that belongs in a future retrieval source,
    that's the exact anti-pattern this chapter warns against.
 
-4. **The four config files are internally coherent, not generic
-   placeholders.** `icp.yaml`, `offering.yaml`, `voice.yaml`, and
-   `evidence-policy.yaml` should describe one plausible, consistent
-   business (a real ICP that the offering actually serves, a voice that
-   fits the offering's positioning) — not four independently-generated
-   files that don't obviously belong to the same company.
+4. **The five config files are internally coherent, not generic
+   placeholders.** `icp.yaml`, `offering.yaml`, `proof-points.yaml`,
+   `voice.yaml`, and `evidence-policy.yaml` should describe one plausible,
+   consistent business (a real ICP that the offering actually serves, proof
+   points that support that offering, a voice that fits its positioning) —
+   not five independently-generated files that don't obviously belong to
+   the same company.
 
 5. **`evidence-policy.yaml`'s rejection conditions are usable, not
    decorative.** They should be specific enough that a reviewer (human or

@@ -2,6 +2,14 @@
 my-work/*
 !my-work/README.md
 
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

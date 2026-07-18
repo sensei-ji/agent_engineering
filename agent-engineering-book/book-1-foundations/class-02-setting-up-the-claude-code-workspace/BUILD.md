@@ -77,7 +77,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ch02 -v
 ```
 
-Expect 5 passed. If Claude wrote a different set of checks than this
+Expect 6 passed. If Claude wrote a different set of checks than this
 reference, that's fine — compare intent (does it verify the same things?)
 rather than diffing test names.
 

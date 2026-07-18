@@ -17,6 +17,47 @@ Source repo for the book by Venkatesh Tadinada.
 - **`my-work/`** — gitignored personal workspace for your own attempts; see
   `my-work/README.md`.
 
+## Development environment
+
+- **Python**: 3.11+ (same minimum the book states in Chapter 2).
+- **Claude Code**: current stable release — install per `book-1-foundations/SETUP.md`.
+- **Setup and the one repository-wide quality gate:**
+
+  ```
+  cd agent-engineering-book
+  python3 -m venv .venv && source .venv/bin/activate
+  pip install -e ".[dev]"
+  make verify
+  ```
+
+  `make verify` (`scripts/verify_repository.py`) checks everything in one
+  command, locally and in CI identically: `manifest.yaml` validity and
+  required artifacts per class, `tests_shared/` sync (no class's copy has
+  drifted from canonical), no stray/secret files tracked by git, no broken
+  relative links across the book's markdown, class folder names matching
+  their manifest metadata, and the full pytest suite (schema validation,
+  cross-file integrity, permission-deny rules, candidate-account fit,
+  proof-point expiry). This is exactly what CI's `verify` job runs.
+
+- **Individual class test command** (what a learner actually runs while
+  working a class — see `HOW-TO-WORK-A-CLASS.md`):
+
+  ```
+  cd book-1-foundations/class-NN-.../
+  pip install -r requirements-dev.txt
+  pytest tests/ -v
+  ```
+
+  Per-class `requirements-dev.txt` files exist so a class folder copied out
+  on its own is still self-sufficient; they're a subset of the root
+  `pyproject.toml`'s `dev` extra, not an independent set — `pyproject.toml`
+  is where a new dependency actually gets added first. CI's
+  `per-class-self-sufficiency` job runs exactly this, per class, from a
+  fresh checkout — proving self-sufficiency rather than assuming it.
+
+- **`scripts/`** — `check_manifest.py`, `sync_shared_tests.py`,
+  `create_class.py`, and `verify_repository.py`; see `scripts/README.md`.
+
 ## Current status
 
 Precise, not aspirational, as of this writing:
@@ -25,9 +66,20 @@ Precise, not aspirational, as of this writing:
   ~4,500 across Book 1's 10 chapters — see the depth caveat under "The five
   books" below). None has yet been expanded into a full technical chapter
   with code, worked examples, and exercises inline.
-- **Implementation**: Book 1, Classes 02 and 03 built and tested (19
-  passing gate tests combined, plus CI). Class 01 is a concept exercise
-  (no code). Classes 04–10 are placeholder folders only.
+- **Implementation**: Book 1, Classes 02 and 03 built and tested, plus CI.
+  Class 02 has 6 gate tests; Class 03 is cumulative and has 114 (the same 6
+  inherited from Class 02, unchanged, plus 108 new — not two independently-
+  sized suites added together). Class 01 is a concept exercise (no code).
+  Classes 04–10 are placeholder folders only.
+- **Config as a real contract**: Class 03's five business-context files
+  each have a formal JSON Schema (with tests proving the schemas actually
+  reject bad input), a candidate-account dataset checked deterministically
+  against the ICP, a proof-point lifecycle (approved/retired + expiry, not
+  one ambiguous date), and cross-file integrity tests (e.g. CLAUDE.md's
+  vocabulary vs. evidence-policy.yaml's, no unreferenced approved proof
+  points). A manifest (`book-1-foundations/manifest.yaml`) is the single
+  source of truth for which classes are implemented — CI validates every
+  required artifact against it, not by scanning directories.
 - **Process infrastructure**: `HOW-TO-WORK-A-CLASS.md`, the LLM-as-judge
   grading template, and CI are in place and apply to whatever's built.
 
@@ -63,6 +115,8 @@ matching the manuscript filename:
 
 ```
 book-1-foundations/
+├── manifest.yaml         the single source of truth for "which classes are implemented"
+├── tests_shared/         canonical foundational tests — edit here, not in a class folder
 ├── class-01-from-language-models-to-agents/    concept only, no code
 ├── class-02-setting-up-the-claude-code-workspace/
 │   ├── README.md        what's in this snapshot
@@ -79,6 +133,13 @@ Open `class-05/` on its own and you have a fully working project through
 Chapter 5 — you don't need to have built classes 2–4 first. This trades
 some duplication across folders for the ability to jump to any checkpoint
 directly.
+
+That duplication is managed, not manual: foundational tests live once in
+`tests_shared/` and get copied into every applicable class by
+`scripts/sync_shared_tests.py`. Fix a foundational test in `tests_shared/`,
+re-run the sync script, and the fix reaches every class that carries that
+chapter — `sync_shared_tests.py --check` (which CI runs) fails the build if
+any class's copy has silently drifted from canonical instead.
 
 Each class folder has (or will have) three documents:
 

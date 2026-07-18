@@ -92,5 +92,5 @@ Every class distinguishes two different kinds of "is this done":
 | Failure mode if skipped | broken structure ships silently | shallow, copy-of-the-reference work passes unnoticed |
 
 Passing gate tests is necessary but not sufficient. A `CLAUDE.md` that
-exists, references all four config files, and parses fine can still be a bad
+exists, references all five config files, and parses fine can still be a bad
 `CLAUDE.md` — that's what step 10 is for.
