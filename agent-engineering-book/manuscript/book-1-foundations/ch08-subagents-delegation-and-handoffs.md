@@ -1,6 +1,6 @@
 # Chapter 8 — Subagents, Delegation and Handoffs
 
-As workflows grow, one agent can become overloaded with context, responsibilities and tools. This chapter introduces subagents as isolated specialists rather than simulated job titles. Readers define responsibility boundaries, tool permissions and structured handoff contracts before implementing separate research agents. The chapter explains when subagents add genuine value and when a Skill, function or workflow step would be simpler and more reliable — and it gives that judgment call a concrete, repeatable test rather than leaving it to instinct.
+As workflows grow, one agent can become overloaded with context, responsibilities and tools. This chapter introduces subagents as isolated specialists rather than simulated job titles. Readers define responsibility boundaries, tool permissions and structured handoff contracts before implementing separate research agents. The chapter explains when subagents add genuine value and when a Skill, function or workflow step would be simpler and more reliable — and it gives that judgment call a concrete, repeatable test rather than leaving it to instinct. This chapter closes Step 3, Design Agent Capabilities (Chapter 1.11): a subagent is the most structurally isolated capability this book builds.
 
 ## 8.1 When a Capability Deserves a Subagent
 

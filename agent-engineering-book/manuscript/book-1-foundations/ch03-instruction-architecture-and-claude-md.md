@@ -1,6 +1,6 @@
 # Chapter 3 — Instruction Architecture and CLAUDE.md
 
-An agent cannot perform reliably when its operating expectations are scattered across ad hoc prompts. This chapter introduces instruction architecture: the deliberate separation of project-wide rules, task-specific procedures, business context and reference material. Readers create the first `CLAUDE.md` for the WidgetWare SDR Lab and define requirements for evidence, uncertainty, human approval and external actions. The chapter also explains instruction precedence, builds the business-context configuration as a validated contract rather than free text, and explains why excessively large instruction files can weaken rather than improve agent performance.
+An agent cannot perform reliably when its operating expectations are scattered across ad hoc prompts. This chapter introduces instruction architecture: the deliberate separation of project-wide rules, task-specific procedures, business context and reference material. Readers create the first `CLAUDE.md` for the WidgetWare SDR Lab and define requirements for evidence, uncertainty, human approval and external actions. The chapter also explains instruction precedence, builds the business-context configuration as a validated contract rather than free text, and explains why excessively large instruction files can weaken rather than improve agent performance. This chapter is Step 2 of the seven-step process introduced in Chapter 1.11, Build Context.
 
 ## 3.1 The Role of Project-Level Instructions
 

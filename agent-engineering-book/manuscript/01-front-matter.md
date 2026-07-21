@@ -134,7 +134,7 @@ The objective is not to copy the reference solution. Readers are encouraged to c
 
 ## Learn by Building with GitHub
 
-This book is supported by a complete GitHub source-code repository. The repository is more than a collection of sample programs. It is a versioned record of the system's evolution — from the first Claude Code project to an observable, secure and production-capable agent platform.
+This book is supported by a complete GitHub source-code repository: [github.com/sensei-ji/agent_engineering](https://github.com/sensei-ji/agent_engineering.git). The repository is more than a collection of sample programs. It is a versioned record of the system's evolution — from the first Claude Code project to an observable, secure and production-capable agent platform.
 
 Every class includes:
 

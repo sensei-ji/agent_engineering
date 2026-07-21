@@ -1,6 +1,6 @@
 # Chapter 4 — Skills and Reusable Capabilities
 
-Repeatedly pasting task instructions into prompts does not create a maintainable agent system. This chapter introduces Skills as reusable, version-controlled capability packages that define how a task should be performed. Readers examine Skill structure, discovery, progressive disclosure and composition before implementing the Account Research Skill. The chapter emphasizes that Skills represent procedural knowledge: they describe a reliable method without necessarily creating a separate autonomous agent, and it distinguishes a genuine Skill boundary from a Skill that has quietly become a second, undocumented copy of the project's business rules.
+Repeatedly pasting task instructions into prompts does not create a maintainable agent system. This chapter introduces Skills as reusable, version-controlled capability packages that define how a task should be performed. Readers examine Skill structure, discovery, progressive disclosure and composition before implementing the Account Research Skill. The chapter emphasizes that Skills represent procedural knowledge: they describe a reliable method without necessarily creating a separate autonomous agent, and it distinguishes a genuine Skill boundary from a Skill that has quietly become a second, undocumented copy of the project's business rules. This chapter opens Step 3 of the seven-step process introduced in Chapter 1.11, Design Agent Capabilities — a step Chapters 5 through 8 continue building out.
 
 ## 4.1 Prompts Versus Skills
 

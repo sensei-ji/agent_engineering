@@ -6,13 +6,15 @@ you've read this once.
 
 ## One-time setup
 
-1. **Fork** this repo on GitHub into your own account.
+1. **Fork** the companion repository,
+   [github.com/sensei-ji/agent_engineering](https://github.com/sensei-ji/agent_engineering.git),
+   on GitHub into your own account.
 2. **Clone your fork** locally and track the original as `upstream`:
 
    ```
    git clone <your-fork-url>
    cd agent_engineering
-   git remote add upstream <original-repo-url>
+   git remote add upstream https://github.com/sensei-ji/agent_engineering.git
    ```
 
 3. **Install tools** per `book-1-foundations/SETUP.md` — Claude Code, Git,

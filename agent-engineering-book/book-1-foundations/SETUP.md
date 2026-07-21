@@ -13,6 +13,19 @@ Class 01 needs a tool that Class 02 is what teaches you to set up.
 2. **Git** — any recent version.
 3. **Python 3.11+** — confirm with `python3 --version`.
 
+## Get the companion repository
+
+Clone it if you don't already have a working copy:
+
+```
+git clone https://github.com/sensei-ji/agent_engineering.git
+cd agent_engineering/agent-engineering-book
+```
+
+Every class folder referenced from here forward (`class-01-...`,
+`class-02-...`, and so on) is a subdirectory of `book-1-foundations/`
+inside this clone.
+
 ## Verify
 
 ```

@@ -1,6 +1,6 @@
 # Chapter 10 — Integrating and Evaluating the MVP
 
-This chapter assembles the individual components built across Chapters 3 through 9 into the first complete WidgetWare SDR Lab. Readers run the workflow across a small account dataset, examine component and end-to-end behaviour and establish the initial evaluation baseline. The objective is not to claim production readiness, but to demonstrate that the system works coherently, produces inspectable evidence and respects the human-approval boundary. The completed version becomes the starting point for Chapter 11's engineered loop, and from there, the advanced capabilities introduced in Book 2.
+This chapter assembles the individual components built across Chapters 3 through 9 into the first complete WidgetWare SDR Lab. Readers run the workflow across a small account dataset, examine component and end-to-end behaviour and establish the initial evaluation baseline. The objective is not to claim production readiness, but to demonstrate that the system works coherently, produces inspectable evidence and respects the human-approval boundary. The completed version becomes the starting point for Chapter 11's engineered loop, and from there, the advanced capabilities introduced in Book 2. This chapter builds the evaluation half of Step 7 of the seven-step process introduced in Chapter 1.11, Evaluate & Govern — production monitoring and governance, the other half, are Book 3 and Book 4's concern.
 
 ## 10.1 The End-to-End SDR Workflow
 

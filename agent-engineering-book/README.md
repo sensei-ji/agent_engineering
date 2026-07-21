@@ -2,12 +2,22 @@
 
 Source repo for the book by Venkatesh Tadinada.
 
+Companion repository: [`github.com/sensei-ji/agent_engineering`](https://github.com/sensei-ji/agent_engineering.git)
+
 - **[`manuscript/`](manuscript/)** — the book text: title page, front matter,
   and five books — Book 1 has eleven chapters (Chapter 11 is Loop
   Engineering, the closing chapter), Books 2–5 have ten each. Each book
   numbers its own chapters independently (Book 2's Chapter 1 is not
   globally "Chapter 12"); a cross-book reference is written out explicitly,
-  e.g. "Book 3, Chapter 9."
+  e.g. "Book 3, Chapter 9." Chapter 1.11 introduces the **Seven Steps to
+  Agent Engineering** (frame the use case, build context, design agent
+  capabilities, build the harness, orchestrate workflows, engineer loops,
+  evaluate and govern) — the repeatable process every chapter in the book
+  maps onto; see `manuscript/book-1-foundations/seven-steps-to-agent-engineering.png`.
+  Book 1 closes with `what-comes-next-book-2.md` (the bridge to Book 2) and
+  `zz-index.md` (a traditional back-of-book index, addressed by
+  Chapter.Section rather than page number, since this manuscript has no
+  fixed pagination).
 - **[`book-1-foundations/`](book-1-foundations/)** — the reference
   implementation for Book 1, one self-sufficient folder per class. **This is
   the current focus.** Books 2–5 don't have code folders yet.
@@ -25,10 +35,11 @@ Source repo for the book by Venkatesh Tadinada.
 
 - **Python**: 3.11+ (same minimum the book states in Chapter 2).
 - **Claude Code**: current stable release — install per `book-1-foundations/SETUP.md`.
-- **Setup and the one repository-wide quality gate:**
+- **Clone and set up, plus the one repository-wide quality gate:**
 
   ```
-  cd agent-engineering-book
+  git clone https://github.com/sensei-ji/agent_engineering.git
+  cd agent_engineering/agent-engineering-book
   python3 -m venv .venv && source .venv/bin/activate
   pip install -e ".[dev]"
   make verify

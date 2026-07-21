@@ -2,7 +2,7 @@
 
 *Designing bounded loops with state, verification, budgets, and human control*
 
-Chapter 10 finished a real, honest, single-lead pipeline: given one target company, the WidgetWare SDR Lab produces one evidence-backed Account Brief. This closing chapter of Book 1 takes that exact pipeline, unchanged, and asks the question a human operator would ask next: *that worked once — now what happens when there are twelve leads, and no one is watching?* Answering that question is Loop Engineering, the discipline this chapter introduces and the one Book 1 closes on. The objective is not to claim production readiness, but to demonstrate that a bounded system can process real work unattended, verify its own output, and know when to stop.
+Chapter 10 finished a real, honest, single-lead pipeline: given one target company, the WidgetWare SDR Lab produces one evidence-backed Account Brief. This closing chapter of Book 1 takes that exact pipeline, unchanged, and asks the question a human operator would ask next: *that worked once — now what happens when there are twelve leads, and no one is watching?* Answering that question is Loop Engineering, the discipline this chapter introduces and the one Book 1 closes on. The objective is not to claim production readiness, but to demonstrate that a bounded system can process real work unattended, verify its own output, and know when to stop. This chapter is Step 6 of the seven-step process introduced in Chapter 1.11, Engineer Loops.
 
 ## 11.1 The Limitation of a Single Agent Run
 
@@ -185,7 +185,7 @@ Every stage the loop advances past should be checked before the loop trusts it, 
 - no external communication has been sent; and
 - human approval is requested wherever the loop's policy requires it.
 
-Only after these checks pass does the loop advance a lead's state. A model-based evaluator — asking a second model call to judge whether the research was actually *good*, not merely well-formed — is a genuine extension of this idea, but it belongs to Book 2's deeper evaluation architectures; Book 1's loop verifies shape and policy compliance deterministically, the same boundary Chapter 1.11 already drew between a gate test and an evaluation.
+Only after these checks pass does the loop advance a lead's state. A model-based evaluator — asking a second model call to judge whether the research was actually *good*, not merely well-formed — is a genuine extension of this idea, but it belongs to Book 2's deeper evaluation architectures; Book 1's loop verifies shape and policy compliance deterministically, the same boundary Chapter 1.12 already drew between a gate test and an evaluation.
 
 ## 11.7 Budgets, Stop Conditions, and the Loop Decision
 
@@ -250,6 +250,8 @@ A system that cannot answer yes to all twelve is not yet an engineered loop, wha
 ## 11.11 Bridge to Book 2
 
 Book 1 builds exactly one loop: bounded, JSON-backed, single-process, and honest about what it does not yet do. That is a deliberate scope decision, not a limitation the book is unaware of. Book 2 extends the same WidgetWare SDR Lab with capabilities this chapter's loop does not need to have ready, including database-backed memory, retrieval-augmented research, dynamic planning, specialist sub-agents working in parallel, maker-checker review patterns, deeper model-based evaluation, event-driven triggers, queue-based execution, context compression, and adaptive prioritization of which lead to work on next — several of these are Book 2's own chapters, including its Chapter 7 on controlled loops and reflection, which picks up directly where this chapter leaves off. None of that is required for Book 1's loop to be genuinely useful on its own terms — a bounded, verifiable, human-controlled system that processes a handful of leads correctly is a complete and defensible unit of engineering, independent of whether Book 2 is ever read.
+
+For the full preview of what Book 2 adds and why — memory, goal-directed planning, reasoning-strategy selection, multi-agent collaboration, and broader interoperability — see [What Comes Next: Book 2](what-comes-next-book-2.md), immediately following this chapter.
 
 ## 11.12 Common Pitfalls
 

@@ -1,6 +1,6 @@
 # Chapter 9 — Workflow Orchestration and Human Approval
 
-A collection of Skills and subagents does not automatically become a coherent system. Orchestration determines the order of work, the flow of information, the handling of partial failure and the points at which human judgment is required. This chapter introduces sequential, parallel and conditional workflows, along with a Campaign Manager that coordinates the SDR agents. Readers also implement basic workflow state, learn to preserve partial results when one component fails, and build a formal human-approval gate that genuinely blocks progress rather than merely documenting an intention to ask permission.
+A collection of Skills and subagents does not automatically become a coherent system. Orchestration determines the order of work, the flow of information, the handling of partial failure and the points at which human judgment is required. This chapter introduces sequential, parallel and conditional workflows, along with a Campaign Manager that coordinates the SDR agents. Readers also implement basic workflow state, learn to preserve partial results when one component fails, and build a formal human-approval gate that genuinely blocks progress rather than merely documenting an intention to ask permission. This chapter is Step 5 of the seven-step process introduced in Chapter 1.11, Orchestrate Workflows.
 
 ## 9.1 Sequential, Parallel and Conditional Workflows
 

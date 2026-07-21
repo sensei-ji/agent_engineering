@@ -1,6 +1,6 @@
 # Chapter 6 — Tool Engineering
 
-Agents become operationally useful when they can interact with files, applications, databases and services. Tool access, however, introduces ambiguity and risk unless interfaces are carefully engineered. This chapter teaches readers to design narrow tools with typed inputs, structured results and explicit failure behaviour. The WidgetWare SDR Lab gains tools for web research, file access and local data processing, a single reusable result shape every tool returns, and a discipline for testing failure modes as rigorously as success. Readers also learn that tool quality frequently affects agent performance more than additional prompting.
+Agents become operationally useful when they can interact with files, applications, databases and services. Tool access, however, introduces ambiguity and risk unless interfaces are carefully engineered. This chapter teaches readers to design narrow tools with typed inputs, structured results and explicit failure behaviour. The WidgetWare SDR Lab gains tools for web research, file access and local data processing, a single reusable result shape every tool returns, and a discipline for testing failure modes as rigorously as success. Readers also learn that tool quality frequently affects agent performance more than additional prompting. This chapter continues Step 3, Design Agent Capabilities (Chapter 1.11); the reusable result shape every tool returns also lays groundwork Step 4's error-handling concerns will build on.
 
 ## 6.1 Models That Reason and Tools That Act
 

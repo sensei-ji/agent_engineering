@@ -1,6 +1,6 @@
 # Chapter 7 — Evidence-Backed Agent Research
 
-Research agents must do more than produce plausible summaries. They need to locate appropriate sources, extract supported claims, distinguish observations from interpretation and communicate uncertainty. This chapter turns the Account Research Skill into an evidence-backed research capability. Readers develop rules for source quality, dates, conflicting information and claim-level citations, and — critically — turn Chapter 3's evidence policy from a document Skills are merely asked to follow into code that actually checks it. The work is then divided into a Company Profiler and Signal Hunter, each optimized for a different type of research question.
+Research agents must do more than produce plausible summaries. They need to locate appropriate sources, extract supported claims, distinguish observations from interpretation and communicate uncertainty. This chapter turns the Account Research Skill into an evidence-backed research capability. Readers develop rules for source quality, dates, conflicting information and claim-level citations, and — critically — turn Chapter 3's evidence policy from a document Skills are merely asked to follow into code that actually checks it. The work is then divided into a Company Profiler and Signal Hunter, each optimized for a different type of research question. This chapter continues Step 3, Design Agent Capabilities (Chapter 1.11) — a concrete, evidence-grounded research capability, not just a schema for one.
 
 ## 7.1 Research as an Agent Workflow
 

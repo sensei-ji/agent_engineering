@@ -199,7 +199,29 @@ Three failure patterns recur often enough across real agent projects that it is 
 
 **The invisible autonomy creep.** A system built at "recommend" quietly grows a "just click through" habit — a human approves every output without really reading it, because the outputs always look reasonable. The system is still nominally at level 2 or 3 of the autonomy spectrum, but the human control that's supposed to define that level has become theater. Chapter 9's approval gate is deliberately designed to resist this: it must show the proposed output, its evidence, its uncertainties and independent reviewer findings — never a bare confirmation button — specifically because a bare button is where this failure mode lives.
 
-## 1.11 A Working Vocabulary for the Rest of This Book
+## 1.11 The Seven Steps to Agent Engineering
+
+Everything in 1.1 through 1.10 — agent versus workflow, the autonomy spectrum, deterministic versus probabilistic reasoning, WidgetWare, the SDR role — is vocabulary and judgment. This section turns it into a repeatable process. Agent Engineering, as this book teaches it, is seven steps, applied here to WidgetWare's sales-development problem and revisited for every new capability the WidgetWare SDR Lab gains:
+
+![Seven Steps to Agent Engineering](seven-steps-to-agent-engineering.png)
+
+| Step | Covers | Where Book 1 builds it |
+|---|---|---|
+| 1. Frame the Use Case | Define the goal, identify users, clarify success metrics, set boundaries and an autonomy level | This chapter — WidgetWare, the SDR role (1.2-1.3), and the autonomy spectrum (1.7) |
+| 2. Build Context | Gather domain knowledge, select relevant data, define instructions/policies/examples, manage context structure and size | Chapter 3 — `CLAUDE.md` and WidgetWare's configuration files |
+| 3. Design Agent Capabilities | Choose or create tools, define tool schemas, create Skills, plan interactions and reasoning | Chapters 4-8 — Skills, output schemas, tools, a real research capability, subagents |
+| 4. Build the Harness | Set up the runtime, manage state and memory, configure safety/permissions/limits, add logging and error handling | Chapter 2 (environment, permissions), threaded through Chapters 6 and 9 (state, error handling) |
+| 5. Orchestrate Workflows | Define steps and sequence, add decision points, integrate human approvals, handle exceptions and fallbacks | Chapter 9 |
+| 6. Engineer Loops | Discover and select work, invoke agents and tools, verify outcomes, persist state and checkpoints, decide: continue, retry, defer, stop or escalate | Chapter 11 |
+| 7. Evaluate & Govern | Evaluate quality (outcomes and process), monitor in production, apply guardrails and policies, continuously improve | Chapter 10 builds the evaluation half; production monitoring and governance are Book 3 and Book 4's concern |
+
+Not coincidentally, Step 6's own bullet list — discover, select, invoke, verify, persist, decide continue/retry/defer/stop/escalate — is Chapter 11's outer loop (11.2, 11.7) stated one level up. The same is true throughout: each step's bullets are the chapter's table of contents, compressed.
+
+Six themes cut across all seven steps rather than belonging to any one of them: security and privacy, cost and token management, observability, testing and evaluation, versioning and change management, and human-in-the-loop oversight. Book 1 touches every one of these somewhere — Chapter 3's evidence policy is a privacy and provenance concern, Chapter 9's approval gate is human-in-the-loop oversight by construction — but none of them gets a dedicated chapter until Book 3 and Book 4, where each becomes the subject rather than a background constraint.
+
+One caution worth stating plainly: Book 1's chapters do not follow this table's step numbers in reading order. Chapter 2 (Step 4, the harness) comes before Chapter 3 (Step 2, context), because a reader needs a working Claude Code environment before there is anywhere to put a `CLAUDE.md` file. The seven steps describe a *dependency structure* among concerns, not a fixed reading order — Book 1's chapter sequence is one reasonable path through that structure, chosen for learning, not the only path through it. Later chapters revisit earlier steps as the system grows: Chapter 9 (Step 5) adds new decision points to capabilities Chapter 6 (Step 3) already built, and Chapter 11 (Step 6) wraps a loop around work Chapter 10 (Step 7) already knows how to evaluate. The steps are a checklist to return to, not a sequence to complete once.
+
+## 1.12 A Working Vocabulary for the Rest of This Book
 
 The following terms recur constantly from Chapter 2 onward and are worth having settled definitions for now, rather than re-deriving them from context each time:
 
@@ -216,14 +238,16 @@ The following terms recur constantly from Chapter 2 onward and are worth having 
 - **Handoff** — the compact, schema-validated object one agent passes to the next, deliberately never a full conversational transcript. Defined in Chapter 8.
 - **Gate test** — a deterministic, structural pytest check (does this file exist, does this schema validate, does this function reject bad input) that verifies *contract compliance*, never subjective quality.
 - **Evaluation / LLM-as-judge** — the separate, qualitative check for whether an output is actually *good* — well-researched, well-argued, appropriately cautious — which a deterministic gate test cannot assess. Introduced properly in Chapter 10.
-- **Loop Engineering** — the discipline of turning a single agent run into a bounded system that repeatedly discovers work, verifies outcomes and decides whether to continue. Introduced in Chapter 11.
+- **Loop Engineering** — the discipline of turning a single agent run into a bounded system that repeatedly discovers work, verifies outcomes and decides whether to continue. Step 6 of 1.11. Introduced in Chapter 11.
+- **The Seven Steps to Agent Engineering** — the book's repeatable process: frame the use case, build context, design agent capabilities, build the harness, orchestrate workflows, engineer loops, evaluate and govern. Introduced in 1.11.
 
 Keeping "gate test" and "evaluation" distinct matters enough to repeat: a gate test can prove a JSON document is *shaped* correctly; it cannot prove the research inside it is *true*. Both checks exist in this book's reference implementation, and conflating them is a common and costly mistake.
 
-## 1.12 Exercises
+## 1.13 Exercises
 
 1. Pick a task you automate today (or wish you could). Using the five-level autonomy spectrum in 1.7, decide honestly which level it currently sits at, and which level it *should* sit at given how much you trust its output today. Write one sentence justifying the gap, if there is one.
 2. Take the "over-agentified lookup" failure pattern from 1.10 and describe a real or plausible example from your own work. What would the deterministic version of that system have looked like?
-3. Using the vocabulary in 1.11, describe in one paragraph — without using the word "agent" — what distinguishes a Skill from a subagent. If you find yourself unable to do this without hedging, that is a sign to re-read 8.1 once you reach it.
+3. Using the vocabulary in 1.12, describe in one paragraph — without using the word "agent" — what distinguishes a Skill from a subagent. If you find yourself unable to do this without hedging, that is a sign to re-read 8.1 once you reach it.
 4. WidgetWare's evidence policy (introduced properly in Chapter 3) will require every factual claim to carry a source and a date. Before reading that chapter, write down what you predict the three or four hardest cases will be — situations where "just cite your source" is easier said than done. Revisit this list after Chapter 7 and see how many you anticipated correctly.
 5. Using 1.4's ten properties, pick a task from your own work that is *not* sales-related and check it against all ten. Which properties does it share with the WidgetWare SDR Lab, and which does it lack? What does that predict about how well an agent would suit it?
+6. Using 1.11's table, pick any chapter from Chapter 2 onward before you read it and predict which of the seven steps it will turn out to be. After reading the chapter, check your prediction — where the chapter revisits a step you thought was already finished (Chapter 9 touching capabilities Chapter 6 already built, for instance), write one sentence explaining why revisiting it was necessary rather than wasted work.
