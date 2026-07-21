@@ -1,7 +1,7 @@
 # Building Class 01 with Claude
 
 There is no code artifact in this class. The deliverable is a short written
-decision: **does the Claude SDR Lab justify being an agent, and at what
+decision: **does the WidgetWare SDR Lab justify being an agent, and at what
 autonomy level?** You'll produce this by working through the framework with
 Claude Code itself, not by writing files.
 
@@ -41,7 +41,7 @@ Claude Code itself, not by writing files.
 
 5. Write down your conclusion in a few sentences — autonomy level, and the
    one or two things that would have to be true for you to increase it later
-   (this previews Chapter 29's progressive-autonomy framework).
+   (this previews Book 3, Chapter 9's progressive-autonomy framework).
 
 ## Verify
 
@@ -53,6 +53,6 @@ push it further.
 
 ## Reference
 
-The book's own answer is Chapter 1.6: bounded MVP, human approval mandatory,
+The book's own answer is Chapter 1.5: bounded MVP, human approval mandatory,
 no autonomous external actions. Compare your reasoning against it, don't
 just copy the conclusion.

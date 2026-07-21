@@ -73,8 +73,7 @@ A single JSON object matching `schema.json`:
 
 ## Failure behavior
 
-If `fetch_webpage` returns an `unavailable` or `not_configured` error (Ch.
-6), say so plainly and return a low-confidence profile rather than
+If `fetch_webpage` returns an `unavailable` or `not_configured` error (Ch. 6), say so plainly and return a low-confidence profile rather than
 fabricating one from general knowledge presented as sourced fact. General
 background knowledge not tied to a retrieved source may only be recorded
 as `claim_type: hypothesis`, `support_type: unsupported`.

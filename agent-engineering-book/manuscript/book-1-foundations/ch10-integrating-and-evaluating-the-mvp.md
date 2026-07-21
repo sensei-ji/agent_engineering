@@ -1,6 +1,6 @@
 # Chapter 10 — Integrating and Evaluating the MVP
 
-The final chapter of Book 1 assembles the individual components into the first complete Claude SDR Lab. Readers run the workflow across a small account dataset, examine component and end-to-end behaviour and establish the initial evaluation baseline. The objective is not to claim production readiness, but to demonstrate that the system works coherently, produces inspectable evidence and respects the human-approval boundary. The completed version becomes the starting point for the advanced capabilities introduced in Book 2.
+This chapter assembles the individual components built across Chapters 3 through 9 into the first complete WidgetWare SDR Lab. Readers run the workflow across a small account dataset, examine component and end-to-end behaviour and establish the initial evaluation baseline. The objective is not to claim production readiness, but to demonstrate that the system works coherently, produces inspectable evidence and respects the human-approval boundary. The completed version becomes the starting point for Chapter 11's engineered loop, and from there, the advanced capabilities introduced in Book 2.
 
 ## 10.1 The End-to-End SDR Workflow
 
@@ -35,7 +35,7 @@ if errors:
     raise ValueError(f"cannot compose: {errors[0]['message']}")
 ```
 
-Voice rules will control length, tone, claims and calls to action. The composer will create drafts but will have no permission to send them — a constraint stated once in Chapter 1 (Book 1 never sends anything; that capability arrives, still gated, in Chapter 29) and re-enforced concretely here: the Message Composer subagent's own toolset, like the research subagents in Chapter 8, has no path to an actual send action, by omission, not merely by instruction. `check_voice_compliance()` checks the composed draft mechanically against `voice.yaml`'s constraints — maximum word count, a list of banned generic-compliment and aggressive-selling phrases, and a check that the company's own name actually appears in the text, since a message with no account-specific reference at all cannot honestly be called personalized regardless of how polished its prose is.
+Voice rules will control length, tone, claims and calls to action. The composer will create drafts but will have no permission to send them — a constraint stated once in Chapter 1 (Book 1 never sends anything; that capability arrives, still gated, in Book 3, Chapter 9) and re-enforced concretely here: the Message Composer subagent's own toolset, like the research subagents in Chapter 8, has no path to an actual send action, by omission, not merely by instruction. `check_voice_compliance()` checks the composed draft mechanically against `voice.yaml`'s constraints — maximum word count, a list of banned generic-compliment and aggressive-selling phrases, and a check that the company's own name actually appears in the text, since a message with no account-specific reference at all cannot honestly be called personalized regardless of how polished its prose is.
 
 ## 10.4 Independent Review
 
@@ -49,7 +49,7 @@ Readers will create a small golden dataset containing expected company facts, kn
 
 The same test cases will be run against the reader's implementation and the supplied reference solution. Differences will become inputs for analysis rather than merely pass-or-fail judgments. A golden dataset's labeled examples are themselves worth testing for internal consistency — a message labeled "compliant" in the dataset that the actual voice-compliance checker flags as violating is not evidence the checker is wrong; it is evidence the dataset's label has drifted from the rules it is supposed to represent, and only a test that runs the labels through the real checker will ever catch that drift.
 
-## 10.6 Demonstrating the Claude SDR Lab MVP
+## 10.6 Demonstrating the WidgetWare SDR Lab MVP
 
 The completed system will be run across several accounts and committed as the Book 1 release. Readers will inspect the generated briefs, validation results and approval records. This is the moment the entire book's cumulative discipline — schemas from Chapter 5, tools from Chapter 6, evidence policy from Chapter 7, subagent boundaries from Chapter 8, workflow state and approval gating from Chapter 9 — has to hold together as one coherent system, not as ten separately-graded exercises.
 
@@ -87,7 +87,7 @@ What "MVP" *does* mean here is narrower and, arguably, more valuable as a founda
 
 **An evaluation dataset nobody re-validates.** As 10.9 warns, a golden dataset's own labels can drift from reality just as easily as the system being measured against it can. Test the dataset's labels against the real checkers, not just the system's outputs against the dataset.
 
-**Confusing "MVP" with "production-ready."** As 10.10 makes explicit, this chapter's system deliberately lacks memory, planning, retrieval depth, resilience and security hardening. Treating this milestone as more finished than it is invites exactly the premature-autonomy mistake Chapter 1.5 warned against on the very first page of the book.
+**Confusing "MVP" with "production-ready."** As 10.10 makes explicit, this chapter's system deliberately lacks memory, planning, retrieval depth, resilience and security hardening. Treating this milestone as more finished than it is invites exactly the premature-autonomy mistake Chapter 1.9 warned against on the very first page of the book.
 
 ## 10.12 Exercises
 
@@ -95,3 +95,5 @@ What "MVP" *does* mean here is narrower and, arguably, more valuable as a founda
 2. Deliberately break one upstream stage (remove a piece of evidence a hypothesis depends on) and trace what happens downstream: does the Message Composer refuse gracefully, does the Evidence Reviewer catch the gap, or does something silently produce plausible-looking output anyway? Whichever happens, decide whether that is the behaviour you would want in a real deployment.
 3. Build a two-example golden dataset (one clearly compliant, one clearly not) for a check you care about in your own work — a tone rule, a factual-support rule, a formatting rule. Run both examples through your actual checking logic and confirm the labels match. If they don't, decide whether the dataset or the checker is wrong.
 4. Write, in your own words and without re-reading 10.10, what distinguishes this chapter's "MVP" from a production system. Then compare your answer against the chapter's own list — what did you name that it didn't, and vice versa?
+
+A single agent run that produces one good Account Brief, on request, is not yet a system that can be pointed at a queue of leads and trusted to work through them unattended. Chapter 11 takes this exact pipeline, unchanged, and wraps it in a bounded, engineered loop — durable state, verification, budgets, and an explicit stop reason — before Book 2 begins.

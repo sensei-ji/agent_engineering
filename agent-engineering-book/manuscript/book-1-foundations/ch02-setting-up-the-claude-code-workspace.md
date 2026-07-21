@@ -26,7 +26,7 @@ A practical installation checklist, in order:
 
 ## 2.3 Project Directory Structure
 
-The SDR Lab will separate configuration, source code, Skills, subagents, data, outputs, tests and operational artifacts. Clear separation makes the system easier to understand and prevents generated outputs from becoming confused with application logic — a directory that mixes source code, scratch output files and business configuration together becomes progressively harder to reason about as the project grows, and much harder to safely hand off to a teammate or a future version of yourself.
+The WidgetWare SDR Lab will separate configuration, source code, Skills, subagents, data, outputs, tests and operational artifacts. Clear separation makes the system easier to understand and prevents generated outputs from becoming confused with application logic — a directory that mixes source code, scratch output files and business configuration together becomes progressively harder to reason about as the project grows, and much harder to safely hand off to a teammate or a future version of yourself.
 
 The project will include directories such as `.claude/` (Claude Code's own configuration — settings, Skills, subagents), `config/` (business context: who we target, what we sell, how we're allowed to talk about it), `src/` (deterministic application code — tools, validators, workflow logic), `data/` (seed and reference data, such as the candidate account list introduced in Chapter 3), `outputs/` (generated artifacts — briefs, drafts — which are useful to inspect locally but never belong in source control as permanent history), `tests/` (the gate tests every chapter adds to), and `evals/` (the evaluation datasets and harnesses introduced properly in Chapter 10). The structure will evolve, but its basic responsibilities will remain stable across all ten chapters of this book and, in fact, across all five books — later chapters add to these directories; none of them get renamed or repurposed.
 
@@ -79,7 +79,7 @@ Readers will configure sensible local permissions and observe how Claude request
 
 Notice what this is doing that `.gitignore` alone does not: `.gitignore` only controls what gets *committed* to source control — it has no effect on what Claude can *read during a live session*. A secrets file can be perfectly gitignored and still be readable by an agent mid-conversation unless a permission rule explicitly blocks it. The two mechanisms solve different problems and neither substitutes for the other; both are required from Chapter 2 onward, before any real secret exists to accidentally expose. This ordering — build the fence before you need it, not after the first incident — is a pattern worth internalizing early.
 
-## 2.6 Creating the SDR Lab Repository
+## 2.6 Creating the WidgetWare SDR Lab Repository
 
 The initial Git repository will contain the project scaffold, README, dependency files, configuration templates and `.gitignore`. Secrets, generated caches and temporary artifacts will be excluded from source control from the very first commit — retrofitting a `.gitignore` after sensitive or noisy files have already been committed means they remain in the repository's history even after being removed from the working tree, which is a strictly harder problem to fix than never committing them in the first place.
 
@@ -92,7 +92,7 @@ A representative `.gitignore` for this stage excludes generated output, secrets,
 outputs/*
 !outputs/.gitkeep
 
-# Secrets — never commit these (Ch. 27, Secret Management).
+# Secrets — never commit these (Book 3, Ch. 7, Secret Management).
 .env
 *.env
 .env.*

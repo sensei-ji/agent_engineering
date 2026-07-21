@@ -41,7 +41,7 @@ and giving it more only invites drift and larger context-window cost.
 `src/tools/search_company_news.py` and run
 `src/evidence_policy_enforcer.py` against its own output). Deliberately
 **no** file-write tool, for the same least-privilege reason as
-`company-profiler`: a search result is untrusted content (Ch. 26 later
+`company-profiler`: a search result is untrusted content (Book 3, Ch. 6 later
 makes this explicit), and this agent should not be able to act on an
 injected instruction even if one appeared in a fetched result.
 

@@ -12,7 +12,7 @@ to this class — the things `pytest tests/ch02` cannot check.
 
 2. **`.claude/settings.json` denies secrets, but goes no further.** It
    should include a `permissions.deny` list blocking `.env`, key/pem files,
-   and anything under `secrets/` — basic hygiene, not Chapter 25/Book 3's
+   and anything under `secrets/` — basic hygiene, not Book 3, Chapter 5/Book 3's
    guardrail system. A submission with no permissions at all has missed
    that `.gitignore` only controls what's committed, not what Claude can
    read during a session. A submission that's already added hooks,

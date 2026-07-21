@@ -3,7 +3,11 @@
 Source repo for the book by Venkatesh Tadinada.
 
 - **[`manuscript/`](manuscript/)** — the book text: title page, front matter,
-  and five books of ten chapters each.
+  and five books — Book 1 has eleven chapters (Chapter 11 is Loop
+  Engineering, the closing chapter), Books 2–5 have ten each. Each book
+  numbers its own chapters independently (Book 2's Chapter 1 is not
+  globally "Chapter 12"); a cross-book reference is written out explicitly,
+  e.g. "Book 3, Chapter 9."
 - **[`book-1-foundations/`](book-1-foundations/)** — the reference
   implementation for Book 1, one self-sufficient folder per class. **This is
   the current focus.** Books 2–5 don't have code folders yet.
@@ -62,19 +66,22 @@ Source repo for the book by Venkatesh Tadinada.
 
 Precise, not aspirational, as of this writing:
 
-- **Manuscript**: all 50 chapter blueprints drafted. Book 1's 10 chapters
-  have since been expanded into full technical chapters (~23,700 words
-  total, averaging ~2,370 words/chapter) — each goes beyond its original
-  six `x.1`–`x.6` subsections with additional topics, worked examples and
-  code excerpts drawn from the actual reference implementation, a Common
-  Pitfalls section, and end-of-chapter exercises. Books 2–5 (chapters
-  11–50, ~15,000 words) remain at original blueprint depth — see the
-  depth caveat under "The five books" below.
-- **Implementation**: Book 1, Classes 02 and 03 built and tested, plus CI.
-  Class 02 has 6 gate tests; Class 03 is cumulative and has 114 (the same 6
-  inherited from Class 02, unchanged, plus 108 new — not two independently-
-  sized suites added together). Class 01 is a concept exercise (no code).
-  Classes 04–10 are placeholder folders only.
+- **Manuscript**: all 51 chapter blueprints drafted (Book 1 has 11
+  chapters; Books 2–5 have 10 each, each book numbering its own chapters
+  independently). Book 1's 11 chapters have since been expanded into full
+  technical chapters — each goes beyond its original six `x.1`–`x.6`
+  subsections with additional topics, worked examples and code excerpts
+  drawn from the actual reference implementation, a Common Pitfalls
+  section, and end-of-chapter exercises. Books 2–5 (10 chapters each,
+  ~15,000 words total) remain at original blueprint depth — see the depth
+  caveat under "The five books" below.
+- **Implementation**: Book 1, Classes 02 through 11 built and tested, plus
+  CI. Class 01 is a concept exercise (no code). Each class from 02 onward
+  is cumulative — every class's suite is the previous class's, unchanged,
+  plus that chapter's new tests: 6 (Class 02) → 114 → 129 → 143 → 164 →
+  192 → 215 → 246 → 281 (Class 10, the completed single-lead MVP) → 302
+  (Class 11, the Book 1 capstone: adds the Chapter 11 loop-engineering
+  runner wrapped around that pipeline unchanged).
 - **Config as a real contract**: Class 03's five business-context files
   each have a formal JSON Schema (with tests proving the schemas actually
   reject bad input), a candidate-account dataset checked deterministically
@@ -87,40 +94,44 @@ Precise, not aspirational, as of this writing:
 - **Process infrastructure**: `HOW-TO-WORK-A-CLASS.md`, the LLM-as-judge
   grading template, and CI are in place and apply to whatever's built.
 
-The honest one-line summary: **a fully architected 50-chapter programme,
-with Book 1 under active implementation and Classes 1–3 complete.** Not yet
-a finished manuscript, and not yet a working Claude SDR Lab MVP — that
-requires Classes 4–10.
+The honest one-line summary: **a fully architected 51-chapter programme,
+with Book 1 complete** — a tested, working WidgetWare SDR Lab MVP (Classes
+02-10) wrapped in a bounded engineered loop (Class 11, Chapter 11 — Loop
+Engineering). Books 2–5 remain at manuscript-blueprint depth, with no
+reference implementation yet.
 
 ## The five books
 
+Each book numbers its own chapters starting at 1 — Book 2's Chapter 1 is
+not globally "Chapter 12." A reference to a different book's chapter is
+always written out explicitly, e.g. "Book 3, Chapter 9."
+
 | Book | Chapters | Theme |
 |---|---|---|
-| 1 — Agent Engineering Foundations | 1–10 | Build the Claude SDR Lab MVP |
-| 2 — Advanced Agent Architectures | 11–20 | Knowledge, memory, planning, collaboration |
-| 3 — Reliable and Secure Agent Systems | 21–30 | Resilience, guardrails, safe autonomy |
-| 4 — AgentOps and Production Engineering | 31–40 | Operating, evaluating, scaling |
-| 5 — Frontier and Specialized Agent Systems | 41–50 | Multimodal, graph, model adaptation |
+| 1 — Agent Engineering Foundations | 1–11 | Build the WidgetWare SDR Lab MVP, then wrap it in a bounded loop |
+| 2 — Advanced Agent Architectures | 1–10 | Knowledge, memory, planning, collaboration |
+| 3 — Reliable and Secure Agent Systems | 1–10 | Resilience, guardrails, safe autonomy |
+| 4 — AgentOps and Production Engineering | 1–10 | Operating, evaluating, scaling |
+| 5 — Frontier and Specialized Agent Systems | 1–10 | Multimodal, graph, model adaptation |
 
 Every chapter file in `manuscript/` contains at least the intro paragraph and
 the `x.1`–`x.6` subsections given in the original source outline — nothing
 here is an empty stub. Depth varies by book, and it's worth being precise
 about the difference:
 
-- **Book 1** (chapters 1–10) has been expanded past blueprint stage into
-  **full technical chapters**: each subsection is fleshed out with concrete
-  detail, most chapters add several additional subsections beyond the
-  original `x.6` (worked code and config excerpts pulled from the actual
-  `book-1-foundations/` reference implementation, not invented examples), and
-  every chapter closes with a Common Pitfalls section and end-of-chapter
-  exercises. Average length is ~2,370 words, in the typical technical-book
-  chapter range.
-- **Books 2–5** (chapters 11–50, ~15,000 words) remain **chapter blueprints**
-  — the full intended coverage, in outline-plus-paragraph form, at
-  ~350–400 words per chapter — not yet expanded to the same depth. That
-  expansion is separate, not-yet-started work, and would naturally follow
-  each book's own reference implementation being built, the same way Book
-  1's expansion followed Book 1's.
+- **Book 1** (its own chapters 1–11) has been expanded past blueprint stage
+  into **full technical chapters**: each subsection is fleshed out with
+  concrete detail, most chapters add several additional subsections beyond
+  the original `x.6` (worked code and config excerpts pulled from the
+  actual `book-1-foundations/` reference implementation, not invented
+  examples), and every chapter closes with a Common Pitfalls section and
+  end-of-chapter exercises.
+- **Books 2–5** (each its own chapters 1–10, ~15,000 words total) remain
+  **chapter blueprints** — the full intended coverage, in
+  outline-plus-paragraph form, at ~350–400 words per chapter — not yet
+  expanded to the same depth. That expansion is separate, not-yet-started
+  work, and would naturally follow each book's own reference implementation
+  being built, the same way Book 1's expansion followed Book 1's.
 
 ## How Book 1 is organized
 
@@ -138,7 +149,11 @@ book-1-foundations/
 │   └── ...              the completed code for this class
 ├── class-03-instruction-architecture-and-claude-md/
 │   └── ...               same pattern, one class further along
-├── class-04-... through class-10-...           not yet built
+├── class-04-... through class-09-...           same pattern, each one class further along
+├── class-10-integrating-and-evaluating-the-mvp/    the completed single-lead MVP
+│   └── ...               every pipeline stage real, human-approval gated
+├── class-11-loop-engineering-from-agent-runs-to-persistent-systems/  the Book 1 capstone
+│   └── ...               same MVP pipeline wrapped in a bounded, engineered loop
 ```
 
 Every class folder from 02 onward is **self-sufficient**: it's the complete,
@@ -178,7 +193,7 @@ landing here:
    `config/*.yaml`, and `data/accounts.csv` for its Class 1 — plus a
    matching slide deck (`.pptx`/`.md`) covering all 10 classes.
 2. **This 50-chapter book** (a separate, much larger planning document),
-   describing the same underlying Claude SDR Lab project in far more depth,
+   describing the same underlying WidgetWare SDR Lab project in far more depth,
    organized as 5 books of 10 chapters instead of one 10-class course.
 
 Both described the same project at different scales and had drifted apart
@@ -201,7 +216,9 @@ course build, its source doc, and its slide deck remain preserved under
 
 ## Next step
 
-Build Class 04 (Skills and Reusable Capabilities): author
-`.claude/skills/account-research/SKILL.md` and produce the first structured
-JSON company profile, starting from a copy of
-`class-03-instruction-architecture-and-claude-md/`.
+Book 1 is complete through Class 11 (`class-11-loop-engineering-from-agent-runs-to-persistent-systems/`),
+the bounded loop-engineering capstone. The next step is Book 2's reference
+implementation, extending the same WidgetWare SDR Lab with memory, RAG,
+planning, and multi-agent collaboration — not yet started; see
+`manuscript/book-2-advanced-architectures/` for the blueprint chapters it
+will implement.

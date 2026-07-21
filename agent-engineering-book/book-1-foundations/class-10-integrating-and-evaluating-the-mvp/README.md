@@ -1,7 +1,7 @@
 # Class 10 — Integrating and Evaluating the MVP
 
 Self-sufficient snapshot: complete project state through Chapter 10 — the
-completed Book 1 Claude SDR Lab MVP.
+completed Book 1 WidgetWare SDR Lab MVP.
 
 ## What's new since Class 09
 
@@ -64,5 +64,12 @@ which is itself the point of this class.
 Every stage of the pipeline — company profiling, signal research,
 stakeholder mapping, pain hypotheses, outreach composition, and
 independent review — is real and wired together, gated by an explicit
-human approval step. Nothing sends anything (Chapter 29 still gates that).
-Book 2 begins from this tested baseline.
+human approval step. Nothing sends anything (Book 3, Chapter 9 still gates
+that).
+
+## Next
+
+Class 11 (`../class-11-loop-engineering-from-agent-runs-to-persistent-systems/`)
+is Book 1's closing chapter: it wraps this exact single-lead pipeline,
+unchanged, in a bounded outer loop that processes a queue of leads instead
+of one at a time. Book 2 begins from that tested baseline.

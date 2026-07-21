@@ -89,7 +89,7 @@ added together" — it's the same 6 plus 108 new ones.
 
 Read this folder's `CLAUDE.md` after writing your own. Look specifically at
 the instruction-precedence section — it's easy to skip because nothing in
-Chapters 1-3 has tested it yet (that comes in Chapter 26, Prompt Injection).
+Chapters 1-3 has tested it yet (that comes in Book 3, Chapter 6, Prompt Injection).
 A CLAUDE.md that's silent on precedence now will need revisiting later;
 better to have the sentence in place even before it's load-bearing.
 

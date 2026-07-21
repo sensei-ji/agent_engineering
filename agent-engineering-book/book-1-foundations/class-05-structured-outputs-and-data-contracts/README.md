@@ -10,8 +10,7 @@ everything from Class 04 plus this chapter's additions.
   shared evidence pool, outreach drafts, reviewer findings, and approval
   status, each as its own `$defs` section. Requires `schema_version` on
   every instance (Ch. 5.6). Evidence items use exactly
-  `evidence-policy.yaml`'s `claim_type`/`support_type` vocabulary — Chapter
-  4's plain-string evidence is now a referenced, structured pool
+  `evidence-policy.yaml`'s `claim_type`/`support_type` vocabulary — Chapter 4's plain-string evidence is now a referenced, structured pool
   (`evidence_ids`), not inline text.
 - `schemas/outreach_message.schema.json` — a standalone copy of the
   embedded `outreach_draft` definition, matching the book's own top-level

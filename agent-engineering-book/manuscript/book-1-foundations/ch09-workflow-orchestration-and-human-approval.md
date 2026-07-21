@@ -56,7 +56,7 @@ The first version will use an explicit, bounded workflow. Greater planning discr
 
 A subtle but important design decision underlies everything in this chapter: workflow state is a plain data structure — a dictionary, ultimately something that serializes to JSON — never something reconstructed by asking a model to summarize what has happened so far in a conversation. The difference matters in a very concrete way: a data structure can be validated, diffed, tested and persisted; a model's summary of "what's happened so far" is itself a probabilistic reconstruction, subject to the same risks Chapter 1 raised about relying on a model for something with one correct, computable answer.
 
-This is the same deterministic-versus-probabilistic principle from Chapter 1.4, now applied specifically to *state*, which is easy to overlook because state feels like it belongs to "the conversation." It does not. "Which stages are complete" has one correct answer at any given moment, computable directly from the run record — it should never be a question posed back to the model.
+This is the same deterministic-versus-probabilistic principle from Chapter 1.8, now applied specifically to *state*, which is easy to overlook because state feels like it belongs to "the conversation." It does not. "Which stages are complete" has one correct answer at any given moment, computable directly from the run record — it should never be a question posed back to the model.
 
 ## 9.8 Designing the Approval Payload
 

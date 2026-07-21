@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agent-engineering-book"
 version = "0.1.0"
-description = "Agent Engineering book + Claude SDR Lab reference implementation — dev tooling only, no installable package."
+description = "Agent Engineering book + WidgetWare SDR Lab reference implementation — dev tooling only, no installable package."
 requires-python = ">=3.11"
 dependencies = []
 

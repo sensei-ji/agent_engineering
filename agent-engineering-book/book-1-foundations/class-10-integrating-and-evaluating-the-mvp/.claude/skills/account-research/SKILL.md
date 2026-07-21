@@ -1,6 +1,6 @@
 ---
 name: account-research
-description: Research a target company and produce a structured, evidence-oriented company profile — industry, business model, size, recent strategic signals, likely priorities, and possible pain points. Use when asked to research, profile, or investigate a company for the Claude SDR Lab, given a company name and website. Do not use this Skill for questions about our own company or offering (see config/offering.yaml and config/proof-points.yaml instead) or for drafting outreach messages (a later Skill, not yet built).
+description: Research a target company and produce a structured, evidence-oriented company profile — industry, business model, size, recent strategic signals, likely priorities, and possible pain points. Use when asked to research, profile, or investigate a company for the WidgetWare SDR Lab, given a company name and website. Do not use this Skill for questions about our own company or offering (see config/offering.yaml and config/proof-points.yaml instead) or for drafting outreach messages (a later Skill, not yet built).
 ---
 
 # Account Research Skill

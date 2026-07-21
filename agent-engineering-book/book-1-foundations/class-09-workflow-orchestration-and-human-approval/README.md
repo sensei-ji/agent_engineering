@@ -18,8 +18,7 @@ everything from Class 08 plus this chapter's additions.
   confirmation button (Ch. 9.5). `apply_decision()` implements approve,
   edit, and reject; edit requires the edited content and is itself the
   human's approval of it.
-- `.claude/agents/campaign-manager.md` — the orchestrator subagent (Ch.
-  9.6): delegates to `company-profiler` and `signal-hunter`, never
+- `.claude/agents/campaign-manager.md` — the orchestrator subagent (Ch. 9.6): delegates to `company-profiler` and `signal-hunter`, never
   repeats their reasoning, never auto-approves or auto-sends anything,
   and stops at `awaiting_approval` until a decision is recorded.
 - `tests/ch09/` — the state machine's valid/invalid transitions, the
@@ -49,4 +48,8 @@ python3 -m pytest tests/ -v
 
 Class 10 (Integrating and Evaluating the MVP) fills in the four
 `not_implemented` stages with real logic, adds a beginner evaluation
-dataset, and demonstrates the full pipeline end to end.
+dataset, and demonstrates the full pipeline end to end. Class 11 (Loop
+Engineering: From Agent Runs to Persistent Systems, Book 1's closing
+chapter) then wraps that single-lead pipeline in a bounded outer loop —
+durable state, verification, budgets, and an explicit stop reason — that
+processes a queue of leads instead of one at a time.

@@ -60,3 +60,8 @@ implemented_classes:
     chapter: 10
     tests_subdir: ch10
     depends_on: class-09-workflow-orchestration-and-human-approval
+
+  - id: class-11-loop-engineering-from-agent-runs-to-persistent-systems
+    chapter: 11
+    tests_subdir: ch11
+    depends_on: class-10-integrating-and-evaluating-the-mvp

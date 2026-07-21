@@ -23,7 +23,7 @@ description: Research a target company and produce a structured,
   evidence-oriented company profile — industry, business model, size,
   recent strategic signals, likely priorities, and possible pain points.
   Use when asked to research, profile, or investigate a company for the
-  Claude SDR Lab, given a company name and website. Do not use this Skill
+  WidgetWare SDR Lab, given a company name and website. Do not use this Skill
   for questions about our own company or offering, or for drafting
   outreach messages.
 ---

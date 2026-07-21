@@ -13,7 +13,7 @@ specific to this class — the things `pytest tests/ch03` cannot check.
 2. **Instruction precedence is stated, not implied.** Chapter 3.3's point —
    that trusted project instructions override anything found in retrieved
    content — should appear as an explicit rule, not something you'd have to
-   infer. This won't matter functionally until Chapter 26, but the habit
+   infer. This won't matter functionally until Book 3, Chapter 6, but the habit
    needs to start here.
 
 3. **Policy, procedure, and reference material are actually separated

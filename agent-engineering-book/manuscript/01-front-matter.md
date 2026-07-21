@@ -33,11 +33,11 @@ The central architectural principles are portable:
 
 These principles remain relevant whether a system is implemented with Claude, OpenAI Agents, Google ADK, LangGraph, Semantic Kernel or future agent platforms.
 
-The book follows one continuous implementation project: the **Claude SDR Lab**, an evidence-backed account-intelligence system. Given a target company and a defined offering, the system researches the organization, identifies timely business signals, maps relevant stakeholder roles, develops pain and value hypotheses, retrieves suitable internal proof points, drafts personalized outreach and independently reviews every material claim.
+The book follows one continuous implementation project: the **WidgetWare SDR Lab**, an evidence-backed account-intelligence system. Given a target company and a defined offering, the system researches the organization, identifies timely business signals, maps relevant stakeholder roles, develops pain and value hypotheses, retrieves suitable internal proof points, drafts personalized outreach and independently reviews every material claim.
 
 The system never takes an external action without the appropriate approval.
 
-The Claude SDR Lab is intentionally practical. It begins as a small project that can run on an individual laptop. Every component can be inspected. Every tool call can be traced. Every output can be tested. As the book progresses, the same system acquires persistent memory, RAG, planning, controlled loops, multi-agent collaboration, error recovery, security controls, production observability and operational governance.
+The WidgetWare SDR Lab is intentionally practical. It begins as a small project that can run on an individual laptop. Every component can be inspected. Every tool call can be traced. Every output can be tested. As the book progresses, the same system acquires persistent memory, RAG, planning, controlled loops, multi-agent collaboration, error recovery, security controls, production observability and operational governance.
 
 By the end of the book, the reader will have followed the complete evolution of an agent system — from its first structured response to a production-capable platform that can be measured, secured, monitored and improved responsibly.
 
@@ -76,7 +76,7 @@ For AI practitioners, it provides the engineering layer between a capable model 
 
 For architects and consultants, it offers a framework for deciding where agents are appropriate, how much autonomy should be permitted and what controls must exist before agents interact with real enterprise systems.
 
-For instructors, the book can be taught as five courses comprising ten classes each.
+For instructors, the book can be taught as five courses — Book 1 comprising eleven classes, Books 2 through 5 comprising ten classes each.
 
 ## What This Book Means for the Reader
 
@@ -108,7 +108,7 @@ The intended outcome is not simply the ability to build agents. It is the judgme
 
 The book may be read sequentially as a complete professional programme or used as five individual courses.
 
-Readers new to Agent Engineering should begin with Book 1 and implement the Claude SDR Lab chapter by chapter. Each chapter is designed as a class-sized learning unit containing a clear engineering concept, a practical implementation goal and a measurable improvement to the continuous project.
+Readers new to Agent Engineering should begin with Book 1 and implement the WidgetWare SDR Lab chapter by chapter. Each chapter is designed as a class-sized learning unit containing a clear engineering concept, a practical implementation goal and a measurable improvement to the continuous project.
 
 Experienced practitioners may begin with a later book. The supporting GitHub repository provides a working checkpoint from the previous chapter, making it possible to start with RAG, memory, reliability, security or production operations without manually reconstructing all earlier work.
 
@@ -175,9 +175,9 @@ The Git history also makes the architecture transparent. Readers can see when st
 
 By the end of the book, the repository becomes both a portfolio project and an auditable engineering record of how a simple agent MVP matured into a complete system.
 
-## The Continuous Case Study — Claude SDR Lab
+## The Continuous Case Study — WidgetWare SDR Lab
 
-The Claude SDR Lab provides a practical thread connecting all five books.
+The WidgetWare SDR Lab provides a practical thread connecting all five books.
 
 Its initial goal is deliberately bounded:
 

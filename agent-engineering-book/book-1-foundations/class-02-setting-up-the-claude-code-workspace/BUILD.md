@@ -1,6 +1,6 @@
 # Building Class 02 with Claude
 
-Goal: a Claude Code project workspace for the Claude SDR Lab, with sensible
+Goal: a Claude Code project workspace for the WidgetWare SDR Lab, with sensible
 permissions, a directory structure ready for the chapters to come, and one
 passing gate test proving Claude Code can inspect, write to, and run
 commands in the repo.
@@ -27,7 +27,7 @@ directory, then diff your result against this one.
    what Claude Code can do for you:
 
    > "Set up a project directory structure for an agent project called
-   > Claude SDR Lab. I need: `.claude/` for Claude Code project settings,
+   > WidgetWare SDR Lab. I need: `.claude/` for Claude Code project settings,
    > `config/` for business-context YAML files, `src/` for tool
    > implementations, `data/` for seed data, `outputs/` for generated
    > artifacts (should be gitignored), `tests/` for gate tests organized by
