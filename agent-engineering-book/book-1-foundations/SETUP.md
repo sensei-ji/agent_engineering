@@ -36,6 +36,18 @@ python3 --version
 
 All three should print a version, not an error.
 
+## Two settings this course relies on
+
+- **Never launch a class workspace with `--dangerously-skip-permissions`**
+  (`bypassPermissions` mode). Class 02 builds a real permission model; that
+  flag disables it entirely and is meant for isolated containers with
+  nothing to protect, not this course.
+- **Auto memory is disabled per class**, via `"autoMemoryEnabled": false`
+  in each class's `.claude/settings.json`, starting Class 02. Claude Code
+  enables this by default and would otherwise carry notes across sessions
+  outside any file this repository controls — Class 02.4 explains why that
+  matters for this book specifically.
+
 ## Then
 
 Start with `class-01-from-language-models-to-agents/README.md`. Its

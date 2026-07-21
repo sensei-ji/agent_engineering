@@ -44,6 +44,8 @@ The reference implementation states this precedence explicitly, in `CLAUDE.md` i
 
 This rule is stated in Chapter 3, long before there is any real tool capable of retrieving external content (that arrives in Chapter 6) or any subagent capable of acting semi-independently (Chapter 8). Establishing the rule before the capability exists is deliberate: by the time the system can actually fetch a webpage, the precedence rule it must obey is already settled, tested and load-bearing, rather than being retrofitted after an incident.
 
+One boundary is worth stating precisely so it is not misread as more than it is: this is an *instruction-level* control, not a complete security boundary. `CLAUDE.md` is loaded as context at the start of every session and genuinely shapes what the model does — Claude Code's own documentation is direct about this: instructions in `CLAUDE.md` "shape Claude's behavior but are not a hard enforcement layer." A sufficiently adversarial or unusual input can still cause the rule to be followed inconsistently, the same way any instruction to a reasoning system can be. Writing this precedence rule in `CLAUDE.md` does not, by itself, *solve* prompt injection — it states the standard the system is held to, and gives later chapters something concrete to enforce against. Hard enforcement — a permission rule Claude cannot reason its way around, a hook that runs regardless of what the model decides, a deterministic check on the output before it's trusted — is built progressively from here: Chapter 7 turns this book's evidence policy from a rule Skills are *asked* to follow into code that actually checks it, and Book 3 does the same for adversarial input specifically. Until then, treat this section's rule the way 3.6 already treats the evidence policy: real, load-bearing, and honestly not yet the same thing as a technical guarantee.
+
 ## 3.4 Business Context and Operating Rules
 
 The SDR agent needs stable information about the intended customer, the company's offering, communication style and evidence standards. These will be represented through dedicated configuration files rather than repeatedly embedded in prompts, because this information changes on a different cadence than the agent's code or instructions — a sales team refining its ideal customer profile should not require touching `CLAUDE.md` or any Skill file at all.
@@ -171,6 +173,8 @@ The point of normalizing these fields is that "does this company fit our ICP" be
 **One ambiguous date instead of a lifecycle.** A proof point (or any claim about the business) with a single "last updated" timestamp cannot distinguish "still valid, just old" from "actively withdrawn." Model the lifecycle with distinct fields, as 3.8 does.
 
 **Trusting a schema to catch cross-file drift.** As 3.9 explains, no single file's schema can prove two files agree with each other. That requires its own, separate category of test.
+
+**Believing a `CLAUDE.md` rule is enforced because it's written down.** As 3.3 stresses, a precedence rule in `CLAUDE.md` is instruction-level guidance, not a technical guarantee. A student who writes the prompt-injection rule in this chapter and considers prompt injection handled has skipped the actual work Chapter 7 and Book 3 exist to do.
 
 ## 3.12 Exercises
 

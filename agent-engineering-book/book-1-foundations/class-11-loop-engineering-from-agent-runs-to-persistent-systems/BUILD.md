@@ -78,7 +78,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-Expect 301 passed, 1 skipped (302 collected): 281 inherited from Class 10
+Expect 302 passed, 1 skipped (303 collected): 282 inherited from Class 10
 (Chapters 2-10), plus 21 new in `tests/ch11/`. The one skip is expected —
 `test_start_stage_rejects_not_implemented_stage` has no `not_implemented`
 stage left to test against, inherited from Class 10.

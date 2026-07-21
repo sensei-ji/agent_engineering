@@ -46,6 +46,20 @@ def test_claude_settings_denies_secret_reads():
         assert pattern in deny_text, f"permissions.deny doesn't cover {pattern!r}"
 
 
+def test_claude_settings_disables_auto_memory():
+    """Claude Code's auto memory is on by default and writes its own notes
+    to a machine-local directory outside this repo, loaded into every later
+    session without anything being written to a project file. That is
+    exactly the kind of invisible carry-forward Chapter 2.4 argues against —
+    every state transition in this book should be traceable to a file this
+    repo controls. Disabled explicitly from Class 2 onward; Book 2 designs
+    memory deliberately instead."""
+    settings = json.loads((REPO_ROOT / ".claude" / "settings.json").read_text())
+    assert settings.get("autoMemoryEnabled") is False, (
+        ".claude/settings.json must set autoMemoryEnabled: false"
+    )
+
+
 def test_claude_md_exists():
     assert (REPO_ROOT / "CLAUDE.md").exists(), "CLAUDE.md is missing at repo root"
 

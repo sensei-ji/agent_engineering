@@ -1,6 +1,6 @@
 # Evidence rules defined here per Chapter 3.6, applied by the research
 # Skill/agents starting Chapter 7 (Evidence-Backed Agent Research), and
-# later enforced deterministically by the guardrails in Chapter 25
+# later enforced deterministically by the guardrails in Book 3, Chapter 5
 # (Deterministic Guardrails and Invariants).
 # Every external factual claim produced by any agent must satisfy this policy.
 #

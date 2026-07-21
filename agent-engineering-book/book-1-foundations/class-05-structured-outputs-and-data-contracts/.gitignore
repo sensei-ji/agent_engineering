@@ -2,7 +2,7 @@
 outputs/*
 !outputs/.gitkeep
 
-# Secrets — never commit these (Ch. 27 Secret Management).
+# Secrets — never commit these (Book 3, Ch. 7 Secret Management).
 .env
 *.env
 .env.*

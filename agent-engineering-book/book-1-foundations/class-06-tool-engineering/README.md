@@ -49,12 +49,12 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-164 tests total: 143 inherited from Class 05 (unchanged) plus 21 new in
+165 tests total: 144 inherited from Class 05 (unchanged) plus 21 new in
 `tests/ch06/`.
 
 ## Next
 
-Class 07 (Evidence-Backed Agent Research) is not yet built. It's where the
+Class 07 (`../class-07-evidence-backed-agent-research/`) is where the
 Account Research Skill actually starts using these tools, and where
 evidence gets claim-level citations instead of the plain strings Chapter 4
 used.

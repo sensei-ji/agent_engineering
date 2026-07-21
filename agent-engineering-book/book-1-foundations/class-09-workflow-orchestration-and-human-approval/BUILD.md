@@ -65,7 +65,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-Expect 246 passed: 215 inherited from Class 08, plus 31 new in `tests/ch09`.
+Expect 247 passed: 216 inherited from Class 08, plus 31 new in `tests/ch09`.
 
 ## Grade it
 

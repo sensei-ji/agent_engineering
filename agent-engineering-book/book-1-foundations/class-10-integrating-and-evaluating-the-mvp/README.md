@@ -54,7 +54,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-281 tests total: 246 inherited from Class 09, plus 35 new in `tests/ch10/`.
+282 tests total: 247 inherited from Class 09, plus 35 new in `tests/ch10/`.
 One inherited Class 09 test (`test_start_stage_rejects_not_implemented_stage`)
 skips here — there is no `not_implemented` stage left to test it against,
 which is itself the point of this class.

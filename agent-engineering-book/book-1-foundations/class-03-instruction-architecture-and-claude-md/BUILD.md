@@ -79,7 +79,7 @@ cd class-03-instruction-architecture-and-claude-md
 python3 -m pytest tests/ -v
 ```
 
-Expect 114 passed: 6 inherited from Class 02's `tests/ch02` (unchanged, just
+Expect 115 passed: 7 inherited from Class 02's `tests/ch02` (unchanged, just
 re-run), plus 108 new in `tests/ch03` covering CLAUDE.md/config structure,
 formal schema validation, candidate-account ICP fit, proof-point lifecycle,
 and cross-file integrity. Don't read this as "two suites of similar size

@@ -32,7 +32,7 @@ required.
 
 ## Run the tests
 
-114 tests total: 6 inherited from Class 02 (`tests/ch02/`, still checking
+115 tests total: 7 inherited from Class 02 (`tests/ch02/`, still checking
 the same workspace contract) plus 108 new in `tests/ch03/` — CLAUDE.md and
 config-file structure, formal JSON Schema validation (including that the
 schemas actually reject bad input), candidate-account ICP fit, the
@@ -51,6 +51,6 @@ python3 -m pytest tests/ -v
 
 ## Next
 
-Class 04 (Skills and Reusable Capabilities) is not yet built. It will add
-`.claude/skills/account-research/SKILL.md` and produce the first structured
-JSON company profile.
+Class 04 (`../class-04-skills-and-reusable-capabilities/`) adds
+`.claude/skills/account-research/SKILL.md`, using the business context
+established here to produce the first structured JSON company profile.

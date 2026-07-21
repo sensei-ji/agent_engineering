@@ -89,8 +89,9 @@ Precise, not aspirational, as of this writing:
 - **Implementation**: Book 1, Classes 02 through 11 built and tested, plus
   CI. Class 01 is a concept exercise (no code). Each class from 02 onward
   is cumulative — every class's suite is the previous class's, unchanged,
-  plus that chapter's new tests: 6 (Class 02) → 114 → 129 → 143 → 164 →
-  192 → 215 → 246 → 281 (Class 10, the completed single-lead MVP) → 302
+  plus that chapter's new tests: 7 (Class 02, including a check that auto
+  memory is disabled) → 115 → 130 → 144 → 165 → 193 → 216 → 247 → 282
+  (Class 10, the completed single-lead MVP) → 303
   (Class 11, the Book 1 capstone: adds the Chapter 11 loop-engineering
   runner wrapped around that pipeline unchanged).
 - **Config as a real contract**: Class 03's five business-context files

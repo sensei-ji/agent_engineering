@@ -40,12 +40,12 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-129 tests total: 114 inherited from Class 03 (unchanged) plus 15 new in
+130 tests total: 115 inherited from Class 03 (unchanged) plus 15 new in
 `tests/ch04/`.
 
 ## Next
 
-Class 05 (Structured Outputs and Data Contracts) is not yet built. It
+Class 05 (`../class-05-structured-outputs-and-data-contracts/`)
 formalizes this chapter's provisional `schema.json` into the versioned
 Account Brief schema that will carry company profile, signals, stakeholder
 roles, hypotheses, evidence, outreach drafts, reviewer findings, and

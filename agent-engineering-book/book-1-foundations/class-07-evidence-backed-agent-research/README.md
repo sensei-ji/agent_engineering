@@ -57,7 +57,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-192 tests total: 164 inherited from Class 06 (unchanged) plus 28 new in
+193 tests total: 165 inherited from Class 06 (unchanged) plus 28 new in
 `tests/ch07/`.
 
 ## Next

@@ -47,12 +47,12 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 
-143 tests total: 129 inherited from Class 04 (unchanged) plus 14 new in
+144 tests total: 130 inherited from Class 04 (unchanged) plus 14 new in
 `tests/ch05/`.
 
 ## Next
 
-Class 06 (Tool Engineering) is not yet built. It adds real web, file, and
+Class 06 (`../class-06-tool-engineering/`) adds real web, file, and
 data tools with typed inputs and structured results, so research stops
 depending entirely on whatever capability happens to be available in the
 current Claude Code session.

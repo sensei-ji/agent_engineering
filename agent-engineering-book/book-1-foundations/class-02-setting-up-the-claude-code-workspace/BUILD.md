@@ -18,7 +18,7 @@ directory, then diff your result against this one.
 1. Create an empty directory and initialize git:
 
    ```
-   mkdir claude-sdr-lab && cd claude-sdr-lab
+   mkdir widgetware-sdr-lab && cd widgetware-sdr-lab
    git init
    ```
 
@@ -77,7 +77,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest tests/ch02 -v
 ```
 
-Expect 6 passed. If Claude wrote a different set of checks than this
+Expect 7 passed. If Claude wrote a different set of checks than this
 reference, that's fine — compare intent (does it verify the same things?)
 rather than diffing test names.
 

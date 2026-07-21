@@ -53,16 +53,19 @@ A Claude Code session has access to a particular working directory, active conve
 
 This distinction prepares the ground for later chapters on memory and durable state (Book 2). At this stage, each run remains largely independent, making behaviour easier to observe and debug: if something goes wrong, the entire relevant history is either in the current conversation or in a file on disk, never in some accumulated hidden state from three sessions ago. This is a genuine advantage of building at this level of the book before introducing memory — bugs are reproducible, because nothing invisible is carried forward.
 
-It is worth being precise about the working directory specifically: Claude Code's filesystem access is scoped to the directory (and its subdirectories) it was launched from, and every path referenced in a `CLAUDE.md`, a Skill, or a tool should be written as relative to that root, not as an absolute path baked in for one person's machine. This is what makes a chapter folder genuinely copy-and-run: nothing inside it assumes a specific location on disk.
+That claim requires one explicit correction, because Claude Code itself does not fully honor it by default. Alongside `CLAUDE.md` (which a person writes), Claude Code has a second memory mechanism called auto memory: notes Claude writes about itself, from your corrections and preferences, into a machine-local directory outside the project (`~/.claude/projects/<project>/memory/`), loaded into every later session automatically. Auto memory is **on by default**. Left enabled, it is exactly the kind of invisible carry-forward this section just argued against — a session three days from now would start already shaped by something no file in this repository shows. This book disables it explicitly, from Class 2 onward, with `"autoMemoryEnabled": false` in `.claude/settings.json` (2.5 shows the full file). Every project state transition in Book 1 stays traceable to a file this repository controls, not to a note Claude decided on its own was worth keeping. Book 2 introduces memory as something deliberately designed — what to retain, how long, and under what conditions it can be revised — rather than as something that accumulates by default before the book has taught readers how to reason about it.
+
+It is worth being precise about the working directory specifically: Claude Code treats the directory it was launched from as the project's default working scope, and every path referenced in a `CLAUDE.md`, a Skill, or a tool should be written as relative to that root, not as an absolute path baked in for one person's machine. This is what makes a chapter folder genuinely copy-and-run: nothing inside it assumes a specific location on disk. Claude Code can be given access to additional directories explicitly (`--add-dir`, or the `/add-dir` command), but they do not automatically become part of the project's configuration root — a `CLAUDE.md` sitting in an added directory is not loaded unless a separate setting says to load it. For this book, launch Claude Code from the class workspace itself and do not add outside directories unless a specific step tells you to.
 
 ## 2.5 Permissions and Execution Modes
 
 Access to files, shell commands, networks and external tools should be explicitly controlled. Convenience should not result in unrestricted authority, even in a learning environment — the habits formed here, at the smallest possible scale, are the habits that will or will not hold up once Book 3 introduces genuinely sensitive operations.
 
-Readers will configure sensible local permissions and observe how Claude requests approval for sensitive actions. These controls form the earliest version of the security model developed more fully in Book 3. Concretely, `.claude/settings.json` supports a `permissions.deny` list — patterns Claude is never allowed to act on, regardless of what the current task seems to require. The reference implementation's very first version of this file denies reading `.env` files, any `*.pem` or `*.key` file, anything under a `secrets/` directory, and any SQLite database file:
+Readers will configure sensible local permissions and observe how Claude requests approval for sensitive actions. These controls form the earliest version of the security model developed more fully in Book 3. Concretely, `.claude/settings.json` supports a `permissions.deny` list — patterns Claude is never allowed to act on, regardless of what the current task seems to require. The reference implementation's very first version of this file denies reading `.env` files, any `*.pem` or `*.key` file, anything under a `secrets/` directory, and any SQLite database file, alongside the `autoMemoryEnabled: false` setting 2.4 already explained:
 
 ```json
 {
+  "autoMemoryEnabled": false,
   "permissions": {
     "deny": [
       "Read(./.env)",
@@ -76,6 +79,8 @@ Readers will configure sensible local permissions and observe how Claude request
   }
 }
 ```
+
+One course rule belongs here, stated as plainly as the permissions list above: never launch this book's workspace with `--dangerously-skip-permissions` (equivalently, `bypassPermissions` mode). That mode exists for isolated containers and VMs with no path to anything worth protecting — it disables every permission prompt Claude Code has, including the protections just configured, and Claude's own documentation is explicit that it "offers no protection against prompt injection or unintended actions." Using it here would not make Chapter 2 faster. It would quietly turn off the exact lesson this chapter exists to teach.
 
 Notice what this is doing that `.gitignore` alone does not: `.gitignore` only controls what gets *committed* to source control — it has no effect on what Claude can *read during a live session*. A secrets file can be perfectly gitignored and still be readable by an agent mid-conversation unless a permission rule explicitly blocks it. The two mechanisms solve different problems and neither substitutes for the other; both are required from Chapter 2 onward, before any real secret exists to accidentally expose. This ordering — build the fence before you need it, not after the first incident — is a pattern worth internalizing early.
 
@@ -143,6 +148,10 @@ Six tests in total confirm: the Python version, the expected directory structure
 **Over-broad permissions "to save time."** Granting blanket filesystem or network access during setup, intending to restrict it "later," reliably does not get restricted later. It is far easier to start narrow and loosen a specific rule when a real, understood need arises than to start broad and try to claw permissions back after habits have formed around them.
 
 **Skipping the environment test.** It takes under a minute to run and catches a surprisingly large fraction of "why isn't this working" issues in later chapters, all of which trace back to something in this chapter never having been verified in the first place.
+
+**Leaving auto memory on and believing every session started clean.** As 2.4 explains, Claude Code's auto memory is on by default and persists notes outside this repository entirely. A reader who never disables it may spend real debugging time on behaviour that traces back to something Claude remembered from three sessions ago rather than to anything in the current chapter folder.
+
+**Reaching for `--dangerously-skip-permissions` to get past a permission prompt faster.** As 2.5 stresses, this disables the exact protections the chapter just built, in an environment with no isolation to justify it. A prompt asking for approval is the system working, not a bug to route around.
 
 ## 2.9 Exercises
 
