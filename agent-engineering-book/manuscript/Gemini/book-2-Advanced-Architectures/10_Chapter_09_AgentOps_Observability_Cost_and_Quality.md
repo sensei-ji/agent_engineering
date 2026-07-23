@@ -107,3 +107,11 @@ WidgetWare is now observable, cost-attributed, and operable in production. What 
 ## Bridge to Chapter 10
 
 Chapter 10 closes Book 2 by making evaluation continuous — production golden datasets, trajectory scoring at scale, LLM-as-a-judge with human calibration, and online monitors — and assembles everything from both books into an enterprise capstone.
+
+## Exercises
+
+1. §9.1 distinguishes what a log, a metric, and a trace each answer. Take a real production incident you've experienced, or can imagine, and identify which of the three would have actually told you the root cause, and which would have only told you something was wrong.
+2. §9.3 argues for attributing cost by user and workflow, not only tracking a total. Describe a cost anomaly that a total-spend dashboard would hide but a per-user, per-workflow breakdown would immediately surface.
+3. §9.4 insists a cheaper model tier be backed by a measured quality comparison, "not an assumption that a cheaper tier is probably fine." Describe what evidence would actually convince you a tiered-routing decision is safe, versus what evidence people typically settle for instead.
+4. §9.5 designs dashboards for an operator, not a developer. Take a dashboard you've actually used and evaluate it against §9.5's four signal categories — which one is missing, and what would an operator have to do instead, mid-incident, to get that missing signal?
+5. §9.6 says observability "does not, by itself, tell you whether what the system did was correct." Describe a specific trace that would look completely healthy — fast, cheap, no errors — while the underlying qualification decision was still wrong.

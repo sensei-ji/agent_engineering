@@ -106,3 +106,11 @@ WidgetWare can now ground its reasoning in enterprise knowledge, with citations,
 ## Bridge to Chapter 4
 
 Chapter 4 manages that competition directly — selecting, compressing, and refreshing context under real token, latency, and cost constraints, rather than letting every available source get appended until something breaks.
+
+## Exercises
+
+1. §3.1 breaks retrieval into seven pipeline stages. Pick a "the agent didn't know something it should have" failure you've seen, real or hypothetical, and, using the seven stages, list which two or three are the most likely culprits — and what you'd check first to tell them apart.
+2. §3.2 frames chunk size as a genuine tradeoff, not an aesthetic choice. For one of WidgetWare's three document types — fact sheets, case studies, compliance documents — argue for a chunk-size choice and name the specific kind of query it would handle worse than the alternative choice would.
+3. §3.3 says access-control failures often look fine in testing because test users have broad access. Describe how you would deliberately construct a test user with narrower access, specifically to surface this failure mode before a real customer does.
+4. §3.4 requires a `chunk_id`, not just a source name, on every retrieved claim. What does having a chunk_id let you do, when auditing a disputed claim, that a source name alone would not?
+5. §3.6 lists four retrieval-specific metrics. Pick the one you think WidgetWare's own team would be most tempted to skip under time pressure, and explain what specifically goes wrong downstream if it's skipped.

@@ -219,3 +219,11 @@ The reader has completed an inspectable, evaluated, and deployable agent applica
 ## Bridge to Chapter 11
 
 A single evaluated run is not yet a system you can point at a backlog of accounts and trust to work through them. Chapter 11 takes this exact workflow, unchanged, and wraps it in a bounded ADK loop — durable session state, budgets, checkpoints, and an explicit decision after every account — before Book 1 closes.
+
+## Exercises
+
+1. §10.1 lists nine things evaluation should cover beyond the final answer. Pick one of your own past "it works" moments with an agent system, in this course or elsewhere, and check how many of the nine you actually verified versus simply assumed because the final output looked right.
+2. §10.3 requires ten kinds of cases in the golden dataset. Look at your own dataset from the Hands-on Lab and identify which of the ten is currently thinnest or missing, and describe a specific WidgetWare account profile that would fill that gap.
+3. §10.5 says an LLM-as-a-judge should never be the sole authority for high-risk requirements, listing six things that must stay deterministic instead. Pick one of the six and describe, concretely, what a judge model getting it "almost right" would look like — a plausible-sounding but wrong judgment a rubric alone might miss.
+4. §10.8 lists seven release-gate conditions. If you had to ship WidgetWare today under deadline pressure and could honestly satisfy only five of the seven, which two would you refuse to waive, and why those two specifically?
+5. §10.9's five-case demonstration ends with "a trustworthy demonstration shows how the system fails safely." Pick the one of the five cases — success, insufficient-evidence, conflict, safety, approval — you'd most want a skeptical buyer to see first, and justify your choice in terms of what it proves that the success case alone cannot.

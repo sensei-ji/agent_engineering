@@ -140,3 +140,11 @@ The project now contains its first working ADK agent. It can reason about suppli
 ## Bridge to Chapter 5
 
 Chapter 5 separates repeatable qualification knowledge from the agent definition. This creates a reusable Skill that can later be shared by multiple agents and evaluated independently.
+
+## Exercises
+
+1. §4.2 draws a narrow first-agent boundary — five things the Account Qualification Assistant may do, five it may not. Before reading Chapter 7, predict which of the "may not" items get lifted first, and in what order. Check your prediction once tools are introduced.
+2. §4.5 insists on testing stable properties, not exact wording. Take one of your own scenario tests (real or hypothetical) for an LLM-backed feature and check whether it's actually asserting exact phrasing in disguise — a string match that would fail if the model rephrased a correct answer.
+3. Using §4.3's distinction between a session and an event, describe from memory — or by re-running the Hands-on Lab — what a single call to the qualification assistant actually produced as its event sequence. Could you explain, from the events alone, why it reached its conclusion?
+4. §4.4 lists four state fields Book 1 will use, but says only `account_id` matters yet. Predict which chapter first makes real use of `workflow_status`, and which first makes real use of `approval_status`, before reading further.
+5. §4.6 says "the ability to explain an execution is more important than visual polish." Run the local playground against one uncertain-evidence account from your Hands-on Lab and write, in plain language, exactly why the agent reached the recommendation it did — citing the actual assembled instructions and event sequence, not a paraphrase from memory.

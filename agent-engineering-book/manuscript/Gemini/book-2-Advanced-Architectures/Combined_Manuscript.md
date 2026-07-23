@@ -242,6 +242,14 @@ The repository now has an explicit architectural map. Nothing has been built yet
 ## Bridge to Chapter 2
 
 The knowledge plane is the most immediately visible gap: WidgetWare cannot yet remember a user from one session to the next, or tell two different users apart. Chapter 2 fixes that first, because every later chapter — retrieval, planning, collaboration — assumes the system already knows whose context it is operating in.
+
+## Exercises
+
+1. Using §1.2's five planes, take a system you actually maintain and sort its components into the same five categories. Which plane, if any, turns out to have no clear owner at all?
+2. §1.1 distinguishes "correct at one scale" from "correct at another scale." Describe one feature of your own that was proven correct in a small test but that you have never actually verified under concurrent, multi-tenant load. What is the smallest test that would tell you the truth?
+3. §1.4 lists five WidgetWare business rules that must not change at platform scale. Pick one and describe a realistic scale-pressure scenario — a deadline, a cost target, an incident — under which a team might be tempted to quietly relax it, and what the honest alternative response should be instead.
+4. §1.5 lists five new failure modes that are structurally impossible in a single-user system. Pick the one you find least intuitive, and explain in your own words why a single-user, Book 1-style system genuinely could not have this problem, no matter how buggy its code was.
+5. Using §1.3's plane-to-chapter mapping table, before reading the rest of Book 2, predict which chapter you expect to be hardest to get right for a system you've actually worked on, and why. Revisit this prediction once you have read all ten chapters.
 <!-- END 02_Chapter_01_From_Agent_Application_to_Agent_Platform.md -->
 
 <!-- BEGIN 03_Chapter_02_Sessions_State_and_Long_Term_Memory.md -->
@@ -361,6 +369,14 @@ WidgetWare can now recognize a returning user and recall relevant, scoped histor
 ## Bridge to Chapter 3
 
 Memory answers "what do we already know about this user." It does not answer "what does the enterprise already know about this account." Chapter 3 connects WidgetWare to retrieval over a real knowledge collection.
+
+## Exercises
+
+1. §2.2 gives examples of what's worth extracting to memory and what's actively risky. Take a real conversation or session log from a system you use and sort five statements from it into "worth remembering," "not worth remembering," and "risky to remember."
+2. §2.3 splits responsibility: the application decides which sessions get submitted; the memory service decides what gets extracted from within them. Describe a scenario where a bug in the *application's* submission decision, not the memory service's extraction, would be the actual root cause of a leaked or wrong memory.
+3. §2.4 says memory is "a hint to verify, not a fact to restate as current." Using a specific stale-memory example from your own life or work — a colleague's role changed and your notes still say the old one — describe what the correct agent behavior should be the moment fresh evidence contradicts it.
+4. §2.5 requires that memory scoped to a revoked user become unreachable, not merely unreferenced. What is the difference between those two, concretely, in terms of what a determined but unauthorized query could still retrieve?
+5. §2.6 requires testing scope enforcement with an actual cross-user query, not an assertion that scoping exists. Write, in plain language, the exact query and the exact wrong result that test needs to attempt and fail to get, in order to actually prove anything.
 <!-- END 03_Chapter_02_Sessions_State_and_Long_Term_Memory.md -->
 
 <!-- BEGIN 04_Chapter_03_Enterprise_Knowledge_and_RAG.md -->
@@ -472,6 +488,14 @@ WidgetWare can now ground its reasoning in enterprise knowledge, with citations,
 ## Bridge to Chapter 4
 
 Chapter 4 manages that competition directly — selecting, compressing, and refreshing context under real token, latency, and cost constraints, rather than letting every available source get appended until something breaks.
+
+## Exercises
+
+1. §3.1 breaks retrieval into seven pipeline stages. Pick a "the agent didn't know something it should have" failure you've seen, real or hypothetical, and, using the seven stages, list which two or three are the most likely culprits — and what you'd check first to tell them apart.
+2. §3.2 frames chunk size as a genuine tradeoff, not an aesthetic choice. For one of WidgetWare's three document types — fact sheets, case studies, compliance documents — argue for a chunk-size choice and name the specific kind of query it would handle worse than the alternative choice would.
+3. §3.3 says access-control failures often look fine in testing because test users have broad access. Describe how you would deliberately construct a test user with narrower access, specifically to surface this failure mode before a real customer does.
+4. §3.4 requires a `chunk_id`, not just a source name, on every retrieved claim. What does having a chunk_id let you do, when auditing a disputed claim, that a source name alone would not?
+5. §3.6 lists four retrieval-specific metrics. Pick the one you think WidgetWare's own team would be most tempted to skip under time pressure, and explain what specifically goes wrong downstream if it's skipped.
 <!-- END 04_Chapter_03_Enterprise_Knowledge_and_RAG.md -->
 
 <!-- BEGIN 05_Chapter_04_Context_Engineering_at_Scale.md -->
@@ -579,6 +603,14 @@ WidgetWare now assembles context deliberately, under budget, with caching reduci
 ## Bridge to Chapter 5
 
 Everything so far still assumes a workflow whose steps were decided in advance. Chapter 5 asks what changes when WidgetWare has to decompose a goal itself and adapt its own plan — without becoming the unbounded loop Book 1, Chapter 11 specifically taught the reader to avoid.
+
+## Exercises
+
+1. §4.2's `ContextBudget` allocates tokens per source rather than letting them accumulate. If you had to cut 20% from WidgetWare's current context budget, which source would you cut from first, and which would you protect at all costs? Justify both choices.
+2. §4.4 requires stable content to be byte-identical and consistently positioned across calls for caching to work. Describe one realistic way a well-intentioned code change — a timestamp in a header, a reordered dictionary — could silently defeat caching without anyone noticing a "bug," only a cost increase.
+3. §4.5 says a summarization step should be tested for whether it retains decisions and unresolved questions, not just narrative shape. Take a real multi-turn conversation you've had and summarize it in two sentences, then check: does your summary still contain the one detail that mattered most for what happens next?
+4. §4.6 warns that optimizing only for token cost can silently degrade quality. Describe a context-exclusion rule that would look good on a cost dashboard while quietly removing something that turns out to matter — and what metric, tracked alongside cost, would have caught it.
+5. Using §4.1's callback to Book 1, Chapter 3.6, explain in your own words why "context engineering includes exclusion" is the same discipline at both a single-account scale and a platform scale — and what specifically has to become systematic, rather than manual, to make that true at scale.
 <!-- END 05_Chapter_04_Context_Engineering_at_Scale.md -->
 
 <!-- BEGIN 06_Chapter_05_Goals_Planning_and_Controlled_Loops.md -->
@@ -696,6 +728,14 @@ WidgetWare can now decompose an open-ended goal into a bounded, inspectable plan
 ## Bridge to Chapter 6
 
 The Territory Planning Agent still does all of its own work. Chapter 6 asks what changes when part of a plan's work is better delegated to an agent WidgetWare's own team did not build — and how two independently deployed agents discover, trust, and collaborate with each other at all.
+
+## Exercises
+
+1. §5.1 asks whether an apparently open-ended request is genuinely open-ended or "a fixed workflow wearing an open-ended goal as a disguise." Take a request from your own domain that sounds like it needs a planning agent, and check: does it actually decompose into the same five or six steps every time?
+2. §5.2 says `PlanReActPlanner` is preferred over `BuiltInPlanner` specifically because it produces an inspectable plan artifact, not because it's more sophisticated. Describe a task where you'd make the opposite choice, and be honest about what you'd be giving up by choosing inspectability.
+3. §5.4 requires budgets on re-planning iterations, not just on the final execution. Using the `TerritoryPlan` contract from §5.3, describe what should happen when the planner has already re-planned twice and proposes a fourth, materially identical plan.
+4. §5.5 distinguishes "refining an approach" from "spinning." Describe, concretely, what evidence in a replan log would convince you a plan is genuinely converging versus what evidence would convince you it isn't — using a real progress signal, not a vibe.
+5. §5.6 applies the same five-way decision — CONTINUE, RETRY, STOP, DEFER, ESCALATE — to a plan instead of a single account. Write out which of the five applies when a planning agent's step depends on a remote agent (Chapter 6) that is currently unavailable, and why not one of the other four.
 <!-- END 06_Chapter_05_Goals_Planning_and_Controlled_Loops.md -->
 
 <!-- BEGIN 07_Chapter_06_Distributed_Agent_Collaboration.md -->
@@ -803,6 +843,14 @@ WidgetWare can now delegate a real capability to an independently deployed agent
 ## Bridge to Chapter 7
 
 Once WidgetWare calls agents it doesn't own, and once its own agents run unattended across many users, "which identity is acting" stops being obvious. Chapter 7 separates user, application, and agent identity, and applies least privilege to all three.
+
+## Exercises
+
+1. §6.1 distinguishes a tool — call it, get data, done — from a peer agent — hand it a task, it reasons on its own. Take an integration you've built or used and decide, honestly, which one it actually is, and whether it was built with the right protocol for what it actually is.
+2. §6.2 compares an Agent Card's description to a Skill's discovery description (Book 1, Chapter 5.6). Write the Agent Card description you'd give WidgetWare's own qualification capability if a different team's agent needed to decide, from the card alone, whether to delegate a task to it.
+3. §6.4 says a remote agent's high-confidence claim is "not the same claim as a `support_type` your own evidence-policy enforcer has actually checked." Describe what your validation code should actually do the moment a remote agent returns a claim with no citation at all.
+4. §6.5 poses a sharper version of Book 1, Chapter 9.1's question, because remote collaboration adds real operational cost. Pick a capability you're tempted to delegate to a remote agent and argue against yourself: what would it cost to build locally instead, and is that cost actually higher than the coordination overhead of depending on someone else's uptime?
+5. §6.3 notes that JSON-RPC, gRPC, and REST are all valid A2A bindings — a transport choice, not a design decision. What would actually change in your integration code if the remote enrichment agent switched bindings tomorrow, and what, if anything, should not have to change?
 <!-- END 07_Chapter_06_Distributed_Agent_Collaboration.md -->
 
 <!-- BEGIN 08_Chapter_07_Agent_Identity_and_Secure_Tool_Access.md -->
@@ -909,6 +957,14 @@ WidgetWare's identities are now separated, scoped, and auditable. Individual com
 ## Bridge to Chapter 8
 
 Chapter 8 adds that organization-wide view — registering agents so they can be discovered and governed centrally, and containing what a misbehaving or compromised one can actually do.
+
+## Exercises
+
+1. §7.1 separates user, application, and agent (workload) identity. Take an action your own system performs today and identify which of the three identities it currently runs under — and whether that's actually the right one, per §7.2's "acting on behalf of, not acting as" distinction.
+2. §7.3 distinguishes Google Cloud's Agent Identity from a general-purpose service account specifically by its dual-identity audit logging. Describe an incident-investigation scenario where having both the agent's and the user's identity in the same log entry would have saved real time, versus having only one or the other.
+3. §7.4 says a role granted at the project level "when a dataset-level grant would do is a standing risk, not a convenience." Audit one permission grant in a system you maintain and check: is it scoped as narrowly as it could be, or as narrowly as was fastest to set up?
+4. §7.5 argues long-lived credentials are a standing liability even when they are never actually leaked. What is the difference in actual risk between a credential that was leaked and one that merely could have been, but wasn't rotated in two years?
+5. §7.6 asks what identity a delegated call to a remote agent (Chapter 6) should carry. Using §7.1's three identities, write out specifically what should be in that delegated credential, and what should deliberately be left out.
 <!-- END 08_Chapter_07_Agent_Identity_and_Secure_Tool_Access.md -->
 
 <!-- BEGIN 09_Chapter_08_Agent_Governance_and_Containment.md -->
@@ -998,6 +1054,14 @@ WidgetWare is now a governed participant in the organization's agent ecosystem �
 ## Bridge to Chapter 9
 
 Chapter 9 builds that operational picture — logs, traces, metrics, and cost accounting across a distributed, multi-agent system, not just the deployment health checks Book 1, Chapter 10 already covered.
+
+## Exercises
+
+1. §8.1 says an Agent Registry solves a problem a team's own documentation cannot: helping a *different* team decide whether it's safe to call into your agent. Describe a real cross-team integration decision you've had to make with only informal documentation, and what specifically would have been faster or safer with a queryable registry entry instead.
+2. §8.3 argues Model Armor and Book 1's application-level defenses are "not redundant" — one is specific, one is generic. Describe a prompt-injection attempt that application-level defense would catch but gateway-level defense would miss, and one that would be the reverse.
+3. §8.4 distinguishes "who is allowed to call what" (identity, gateway) from "can data cross a boundary at all" (VPC Service Controls). Describe a scenario where an identity and gateway policy are both configured correctly, and the request is fully authorized, but VPC Service Controls is the only thing that should stop it.
+4. §8.5 lists four governance requirements that sit above any single team's release gates. If your own team were under deadline pressure, which of the four would be most tempting to treat as "we'll register it properly next sprint" — and what §8.6 says about why that temptation is exactly the case governance can't self-certify.
+5. Using §8.2's chokepoint argument, describe what a "misconfigured or compromised agent" routing around the gateway would actually look like in practice — what specific technical shortcut would it be taking, and what would have to be true of the network or IAM configuration for that shortcut to actually work?
 <!-- END 09_Chapter_08_Agent_Governance_and_Containment.md -->
 
 <!-- BEGIN 10_Chapter_09_AgentOps_Observability_Cost_and_Quality.md -->
@@ -1110,6 +1174,14 @@ WidgetWare is now observable, cost-attributed, and operable in production. What 
 ## Bridge to Chapter 10
 
 Chapter 10 closes Book 2 by making evaluation continuous — production golden datasets, trajectory scoring at scale, LLM-as-a-judge with human calibration, and online monitors — and assembles everything from both books into an enterprise capstone.
+
+## Exercises
+
+1. §9.1 distinguishes what a log, a metric, and a trace each answer. Take a real production incident you've experienced, or can imagine, and identify which of the three would have actually told you the root cause, and which would have only told you something was wrong.
+2. §9.3 argues for attributing cost by user and workflow, not only tracking a total. Describe a cost anomaly that a total-spend dashboard would hide but a per-user, per-workflow breakdown would immediately surface.
+3. §9.4 insists a cheaper model tier be backed by a measured quality comparison, "not an assumption that a cheaper tier is probably fine." Describe what evidence would actually convince you a tiered-routing decision is safe, versus what evidence people typically settle for instead.
+4. §9.5 designs dashboards for an operator, not a developer. Take a dashboard you've actually used and evaluate it against §9.5's four signal categories — which one is missing, and what would an operator have to do instead, mid-incident, to get that missing signal?
+5. §9.6 says observability "does not, by itself, tell you whether what the system did was correct." Describe a specific trace that would look completely healthy — fast, cheap, no errors — while the underlying qualification decision was still wrong.
 <!-- END 10_Chapter_09_AgentOps_Observability_Cost_and_Quality.md -->
 
 <!-- BEGIN 11_Chapter_10_Continuous_Evaluation_and_Enterprise_Capstone.md -->
@@ -1239,6 +1311,14 @@ WidgetWare SDR Lab is now a governed, observable, continuously evaluated enterpr
 ## Bridge to the Book 2 conclusion
 
 The conclusion consolidates what changed between an application and a platform, restates the habits worth carrying into whatever comes next, and closes the WidgetWare story this series has followed since Chapter 1.
+
+## Exercises
+
+1. §10.1 argues a release gate is "a snapshot," not an ongoing guarantee, because the system keeps changing underneath it. List three things about WidgetWare that could change after a release gate passes, each from a different chapter of Book 2, that the original gate could not have anticipated.
+2. §10.3 says a trajectory that reaches the right answer through a path that skipped evidence validation "got lucky," not passed. Describe a plausible way WidgetWare could produce a correct qualification while still skipping a required check somewhere in the pipeline — and what a trajectory-level score would catch that a final-answer-only score would miss.
+3. §10.4 requires tracking judge-versus-human agreement as its own visible metric. If that agreement rate started drifting downward over a month, what are two different underlying causes it could indicate — one about the judge, one about the system itself — and how would you tell them apart?
+4. §10.5 warns that a monitor which fires and is routinely ignored "trains the organization to distrust its own alerts." Describe a monitor you'd actually be tempted to silence rather than fix, and what the honest fix would look like instead.
+5. §10.7 requires an honest maturity assessment naming real limitations. Using the enterprise capstone's eleven-item list in §10.6, pick one capability and write, in one paragraph, the honest limitation a marketing version of this same capstone would be tempted to leave out.
 <!-- END 11_Chapter_10_Continuous_Evaluation_and_Enterprise_Capstone.md -->
 
 <!-- BEGIN 12_Book_2_Conclusion.md -->

@@ -170,3 +170,11 @@ WidgetWare is now a complete bounded agent system. It can research, qualify, rev
 ## Bridge to Chapter 10
 
 The final chapter asks whether the system is actually good enough. We will build evaluation datasets, inspect trajectories, test failure conditions, add observability, and deploy the integrated application.
+
+## Exercises
+
+1. §9.1 lists six reasons a single agent's broad responsibility becomes a problem. Using your own qualification-and-research code as it stood at the end of Chapter 8, before this chapter's split, identify which one or two of those six reasons had already started to appear, even if you hadn't named the problem yet.
+2. §9.3 requires the state machine to exist before the agent prompts. Draw, on paper, the ten states from §9.3, then trace by hand what happens to an account that fails research twice before succeeding on a third attempt — which states does it pass through, and how many times does it revisit `RESEARCHING`?
+3. §9.5 says the outreach agent must not independently browse for more persuasive facts after review, calling that a bypass of the evidence gate. Describe a realistic, well-intentioned reason a future engineer might be tempted to add exactly that shortcut, and what you would say to talk them out of it.
+4. §9.7 lists seven partial-failure modes. Pick the one your workflow currently handles by restarting more of the process than §9.7 says it should, and describe the smallest change that would let it resume from the actual point of failure instead.
+5. §9.6 insists approval is "a workflow state and policy decision," not an instruction asking politely. Find the exact line of code — or the exact absence of one — that makes it *structurally* impossible to skip approval in your workflow, not just unlikely. If you cannot point to one, that is the gap this exercise is meant to surface.

@@ -153,3 +153,12 @@ The repository now contains a clear problem definition and system boundary. The 
 ## Bridge to Chapter 2
 
 The next chapter builds the engineering harness in Antigravity. Before giving the model more capability, we create the workspace, repository conventions, specifications, permissions, and test discipline that will keep development inspectable.
+
+## Exercises
+
+1. Using the autonomy spectrum in §1.3, pick a task you currently automate (or wish you could) and decide honestly which of the seven levels it sits at today, and which level it *should* sit at given how much you currently trust its output. WidgetWare stops at level five; justify in one sentence why your task should stop at the same level, a lower one, or a higher one.
+2. Using §1.2's precise vocabulary, describe — without using the word "agent" — what distinguishes an assistant from a workflow, and a workflow from an agent. If you find yourself hedging, that is a sign to revisit this section once Chapter 9 introduces a full multi-agent workflow.
+3. WidgetWare's evidence policy is fully specified in Chapter 3 (§3.5) and exercised again in Chapter 8. Before reading either chapter, use §1.6's in-scope and out-of-scope boundary to predict two or three situations where "cite your source" will be harder than it sounds. Revisit this list after Chapter 8 and check how many you anticipated correctly.
+4. Using §1.4's central pattern — the model interprets and drafts; software validates, authorizes, persists, routes, and enforces — pick one activity from §1.6's in-scope list and write, in one sentence each, what the model is trusted to decide and what deterministic code must never let it decide alone.
+5. Write your own version of §1.7's six success criteria for a WidgetWare capability not yet built — for example, "flag accounts where the qualification score conflicts with the SDR's own instinct." Try to make every criterion something a person could test mechanically, without asking you a clarifying question.
+6. Using the Seven Steps to Agent Engineering introduced in this book's Introduction, pick any chapter from Chapter 2 onward before you read it and predict which step it will map to. After reading the chapter's own Seven-Step mapping, check your prediction — where a chapter's *Supporting* steps surprise you, write one sentence on why that step needed revisiting there.

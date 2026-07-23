@@ -102,3 +102,11 @@ WidgetWare now assembles context deliberately, under budget, with caching reduci
 ## Bridge to Chapter 5
 
 Everything so far still assumes a workflow whose steps were decided in advance. Chapter 5 asks what changes when WidgetWare has to decompose a goal itself and adapt its own plan — without becoming the unbounded loop Book 1, Chapter 11 specifically taught the reader to avoid.
+
+## Exercises
+
+1. §4.2's `ContextBudget` allocates tokens per source rather than letting them accumulate. If you had to cut 20% from WidgetWare's current context budget, which source would you cut from first, and which would you protect at all costs? Justify both choices.
+2. §4.4 requires stable content to be byte-identical and consistently positioned across calls for caching to work. Describe one realistic way a well-intentioned code change — a timestamp in a header, a reordered dictionary — could silently defeat caching without anyone noticing a "bug," only a cost increase.
+3. §4.5 says a summarization step should be tested for whether it retains decisions and unresolved questions, not just narrative shape. Take a real multi-turn conversation you've had and summarize it in two sentences, then check: does your summary still contain the one detail that mattered most for what happens next?
+4. §4.6 warns that optimizing only for token cost can silently degrade quality. Describe a context-exclusion rule that would look good on a cost dashboard while quietly removing something that turns out to matter — and what metric, tracked alongside cost, would have caught it.
+5. Using §4.1's callback to Book 1, Chapter 3.6, explain in your own words why "context engineering includes exclusion" is the same discipline at both a single-account scale and a platform scale — and what specifically has to become systematic, rather than manual, to make that true at scale.

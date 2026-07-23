@@ -398,6 +398,15 @@ The repository now contains a clear problem definition and system boundary. The 
 ## Bridge to Chapter 2
 
 The next chapter builds the engineering harness in Antigravity. Before giving the model more capability, we create the workspace, repository conventions, specifications, permissions, and test discipline that will keep development inspectable.
+
+## Exercises
+
+1. Using the autonomy spectrum in §1.3, pick a task you currently automate (or wish you could) and decide honestly which of the seven levels it sits at today, and which level it *should* sit at given how much you currently trust its output. WidgetWare stops at level five; justify in one sentence why your task should stop at the same level, a lower one, or a higher one.
+2. Using §1.2's precise vocabulary, describe — without using the word "agent" — what distinguishes an assistant from a workflow, and a workflow from an agent. If you find yourself hedging, that is a sign to revisit this section once Chapter 9 introduces a full multi-agent workflow.
+3. WidgetWare's evidence policy is fully specified in Chapter 3 (§3.5) and exercised again in Chapter 8. Before reading either chapter, use §1.6's in-scope and out-of-scope boundary to predict two or three situations where "cite your source" will be harder than it sounds. Revisit this list after Chapter 8 and check how many you anticipated correctly.
+4. Using §1.4's central pattern — the model interprets and drafts; software validates, authorizes, persists, routes, and enforces — pick one activity from §1.6's in-scope list and write, in one sentence each, what the model is trusted to decide and what deterministic code must never let it decide alone.
+5. Write your own version of §1.7's six success criteria for a WidgetWare capability not yet built — for example, "flag accounts where the qualification score conflicts with the SDR's own instinct." Try to make every criterion something a person could test mechanically, without asking you a clarifying question.
+6. Using the Seven Steps to Agent Engineering introduced in this book's Introduction, pick any chapter from Chapter 2 onward before you read it and predict which step it will map to. After reading the chapter's own Seven-Step mapping, check your prediction — where a chapter's *Supporting* steps surprise you, write one sentence on why that step needed revisiting there.
 <!-- END 03_Chapter_01_From_Language_Models_to_Agent_Engineering.md -->
 
 <!-- BEGIN 04_Chapter_02_Building_with_Antigravity.md -->
@@ -574,6 +583,14 @@ The project now has an inspectable engineering harness. No business intelligence
 ## Bridge to Chapter 3
 
 The next chapter defines how Gemini will receive instructions and business context. The goal is not to create a larger prompt. It is to design an explicit context architecture that keeps stable policies, task data, and retrieved evidence separate.
+
+## Exercises
+
+1. Following §2.2's disciplined cycle, give Antigravity one deliberately unrestricted instruction ("build the entire application") on a throwaway branch, and separately give it a properly scoped task per §2.6's example. Compare what each produces and how long it actually took you to review each one with confidence.
+2. §2.4 distinguishes `README.md` from `SPEC.md`. Take a project you maintain today and check whether it has a document playing SPEC's role — required behavior, prohibited behavior, state transitions, completion criteria — or whether that information only lives in your head or in code comments. Write the single most important missing sentence such a `SPEC.md` would need.
+3. §2.5's development instructions include "do not implement external message sending in Book 1." Using §2.7's least-privilege list, write the equivalent hard boundary you would set for a coding agent working on a codebase you maintain — one instruction whose violation would be serious enough that you'd want it caught in every review, not just remembered.
+4. §2.7 calls the development agent "a powerful collaborator, not an unquestioned authority." Recall (or imagine) a specific moment a coding agent proposed a change you almost accepted without reading closely. What in the diff should have made you slow down?
+5. Using §2.3's repository structure, predict which directory each of the next four chapters' work will land in — `config/`, `src/widgetware_sdr/`, `skills/`, `tests/` — before reading them. Check your predictions once you reach Chapter 5.
 <!-- END 04_Chapter_02_Building_with_Antigravity.md -->
 
 <!-- BEGIN 05_Chapter_03_Gemini_Models_and_Context_Engineering.md -->
@@ -756,6 +773,14 @@ The project now has a deliberate model and context architecture. The next step i
 ## Bridge to Chapter 4
 
 Chapter 4 introduces the core ADK abstractions and builds the first WidgetWare agent. The emphasis remains narrow: one agent, one responsibility, clear inputs, observable events, and no external tools yet.
+
+## Exercises
+
+1. §3.2 separates context into five layers. Take a system prompt you've written for a real task and sort its contents into these five layers. How much of it turns out to actually be business context or task context masquerading as a system instruction?
+2. §3.3's `icp.yaml` example states policy as data, not prose. Pick one rule from your own domain that you currently only state in a prompt (for example, "prefer accounts in these industries") and write it the way §3.3 would — as a value deterministic code can read, not a sentence a model has to reparse every time.
+3. §3.6 lists seven context quality failures. Pick the one most likely to occur unnoticed in a system you maintain, and describe what evidence would tell you it was actually happening — a log line, a test that should exist but doesn't, or a specific pattern of complaint.
+4. Using §3.5's five evidence categories — verified fact, derived fact, inference, unknown, conflict — take three claims from a real piece of business writing (an email, a report, a slide) and classify each one. Was any inference originally presented with the confidence of a verified fact?
+5. §3.4 warns against aspirational instructions such as "always be accurate." Find one aspirational instruction in a prompt you've written and rewrite it as an observable requirement, the way §3.4 rewrites "always be accurate" into an explicit citation rule.
 <!-- END 05_Chapter_03_Gemini_Models_and_Context_Engineering.md -->
 
 <!-- BEGIN 06_Chapter_04_Your_First_Agent_with_ADK.md -->
@@ -901,6 +926,14 @@ The project now contains its first working ADK agent. It can reason about suppli
 ## Bridge to Chapter 5
 
 Chapter 5 separates repeatable qualification knowledge from the agent definition. This creates a reusable Skill that can later be shared by multiple agents and evaluated independently.
+
+## Exercises
+
+1. §4.2 draws a narrow first-agent boundary — five things the Account Qualification Assistant may do, five it may not. Before reading Chapter 7, predict which of the "may not" items get lifted first, and in what order. Check your prediction once tools are introduced.
+2. §4.5 insists on testing stable properties, not exact wording. Take one of your own scenario tests (real or hypothetical) for an LLM-backed feature and check whether it's actually asserting exact phrasing in disguise — a string match that would fail if the model rephrased a correct answer.
+3. Using §4.3's distinction between a session and an event, describe from memory — or by re-running the Hands-on Lab — what a single call to the qualification assistant actually produced as its event sequence. Could you explain, from the events alone, why it reached its conclusion?
+4. §4.4 lists four state fields Book 1 will use, but says only `account_id` matters yet. Predict which chapter first makes real use of `workflow_status`, and which first makes real use of `approval_status`, before reading further.
+5. §4.6 says "the ability to explain an execution is more important than visual polish." Run the local playground against one uncertain-evidence account from your Hands-on Lab and write, in plain language, exactly why the agent reached the recommendation it did — citing the actual assembled instructions and event sequence, not a paraphrase from memory.
 <!-- END 06_Chapter_04_Your_First_Agent_with_ADK.md -->
 
 <!-- BEGIN 07_Chapter_05_Skills_and_Reusable_Agent_Capabilities.md -->
@@ -1063,6 +1096,14 @@ The qualification procedure is now a reusable asset. The agent can apply consist
 ## Bridge to Chapter 6
 
 Chapter 6 replaces ambiguous prose interfaces with typed contracts. This allows workflows, tests, and downstream components to consume agent results safely.
+
+## Exercises
+
+1. §5.3 distinguishes a Skill (how to perform a task) from a tool (doing something outside the model). Take one procedure and one external action from your own domain and confirm you can sort them correctly. Is there anything you currently implement as a tool that is actually a Skill in disguise, or the reverse?
+2. Using §5.5's anatomy, draft only the "Procedure" section — the ordered steps — for a Skill you don't yet have: something you personally do by habit rather than by written rule. Where did you struggle to make step 2 or 3 explicit?
+3. §5.6 (progressive disclosure) argues a Skill should expose a concise description for discovery and load full detail only when selected. Look at the `skill.md` you built in the Hands-on Lab: if a second, unrelated agent had to decide whether this Skill applies to its task, does the discovery description alone give it enough to decide correctly?
+4. §5.7 requires an owner and version for a business Skill. Imagine the ICP thresholds in the qualification Skill change three months from now. Using §5.7's four record-keeping questions, write what that change's record would actually say.
+5. Using §5.4's distinction between a Skill and a workflow, predict which of Chapter 9's five named agents will use the ICP Qualification Skill directly, and which will use a different Skill or none at all. Check your prediction once you reach Chapter 9.
 <!-- END 07_Chapter_05_Skills_and_Reusable_Agent_Capabilities.md -->
 
 <!-- BEGIN 08_Chapter_06_Structured_Outputs_and_Agent_Contracts.md -->
@@ -1225,6 +1266,14 @@ The WidgetWare qualification agent now produces a machine-validated result that 
 ## Bridge to Chapter 7
 
 Chapter 7 gives the system controlled capabilities. The agent will retrieve account data through narrow tools whose inputs, permissions, errors, and outputs are as carefully engineered as the agent contract.
+
+## Exercises
+
+1. Take the prose result "Acme looks like a strong opportunity" from §6.1 and write out the six things §6.1 says software cannot reliably determine from it. Now look at your own `QualificationResult` output from the Hands-on Lab — does it actually answer all six?
+2. §6.3 warns that a confidence value is a self-assessment, not a calibrated probability. Design one deterministic rule, in plain language, that would prevent your system from treating a 0.95 confidence score as sufficient justification on its own, mirroring the four rules in §6.3.
+3. §6.5 lists six pipeline steps ending in "fail safely if the contract remains invalid." Deliberately feed your qualification agent an account likely to produce a borderline or malformed result. Does it reach `BLOCKED`, or does it silently produce something plausible-looking instead?
+4. Using §6.7's handoff-design principle — sufficient but not bloated — look at your `QualificationResult` contract and identify one field a downstream agent genuinely needs that's currently missing, and one field that's present but that none of Chapter 9's agents will actually use.
+5. §6.6 requires two separate layers: contract tests and evaluation cases. Write one evaluation case, in plain language — the account, the expected reasoning — that a contract test could never catch, because the schema would validate a wrong answer just as easily as a right one.
 <!-- END 08_Chapter_06_Structured_Outputs_and_Agent_Contracts.md -->
 
 <!-- BEGIN 09_Chapter_07_Tool_Engineering.md -->
@@ -1392,6 +1441,15 @@ The agent can now obtain trusted internal data through controlled interfaces. It
 ## Bridge to Chapter 8
 
 Chapter 8 builds an evidence-backed research pipeline and introduces MCP as a standardized integration mechanism. The focus is provenance, source quality, and resistance to malicious or irrelevant content.
+
+## Exercises
+
+1. §7.1 lists when a tool is appropriate. Take one capability from your own domain currently implemented as a tool and check it against the list — does it actually need to be a tool, or could it be a deterministic function called directly, per §7.1's closing caveat?
+2. §7.2 says a model selects tools by name and description alone. Write the description you'd give `get_account_profile` if you were deliberately trying to get an agent to misuse it — call it with the wrong account, or use it when it shouldn't — then write the corrected version and identify exactly what changed.
+3. §7.5 (least privilege) asks you to imagine a read-only tool sharing credentials with a write-capable one. Audit one tool from your Hands-on Lab: what is the most damaging action its current credentials would actually permit, whether or not the tool's code ever performs that action?
+4. §7.6 lists eight tool failure modes. Pick the one your `get_account_profile` implementation currently handles worst, or wouldn't distinguish from success, and describe what a caller sees today versus what §7.6 says they should see.
+5. §7.7 says Book 1 "intentionally omits the send-message tool." Predict what each of §7.7's five side-effect controls — idempotency, explicit confirmation, audit information, narrow scope, rollback — would concretely mean the day a send tool is finally added.
+6. §7.8 requires testing tools independently from agents, then testing the agent with mocks. Run your qualification agent with a mock `get_account_profile` that returns a `permission_denied` error. Does the agent handle it the way §7.6 requires, or does it do something the chapter would call fabrication?
 <!-- END 09_Chapter_07_Tool_Engineering.md -->
 
 <!-- BEGIN 10_Chapter_08_Evidence_Backed_Research_with_MCP.md -->
@@ -1552,6 +1610,14 @@ WidgetWare can now produce an inspectable account research brief. Research and q
 ## Bridge to Chapter 9
 
 Chapter 9 introduces specialized agents, typed handoffs, workflow orchestration, partial-failure handling, bounded iteration, and an approval gate before outreach.
+
+## Exercises
+
+1. §8.5 gives four conditions favoring MCP over a function tool. Take the one research source you connected in the Hands-on Lab and argue, honestly, whether MCP was the right call for it under those four conditions — or whether a function tool would have been more honest about what the integration actually is.
+2. §8.6 lists seven controls against untrusted retrieved content. Re-run your prompt-injection test, but change the injected instruction to something more subtle than "ignore your rules" — for example, retrieved text stating a false but plausible employee count as if it were the company's own official figure. Does your evidence pipeline catch a false *fact* as readily as it catches an obvious override attempt?
+3. §8.4 says contradictions should not be resolved by picking the most convenient result. Using your two-conflicting-sources test, write out what "the most convenient result" would have been for a WidgetWare SDR eager to hit quota, and confirm your `ResearchBrief` actually resisted that pull.
+4. §8.2 gives five research questions. Add a sixth, specific to a signal WidgetWare's ICP (Chapter 3) cares about but isn't already covered, and explain what evidence would actually answer it.
+5. §8.3 treats a five-year-old employee count as potentially unusable for a current decision. Pick one evidence item from your `ResearchBrief` and write what "sufficiently current" should mean for that specific kind of fact — a number of days, months, or years — and why.
 <!-- END 10_Chapter_08_Evidence_Backed_Research_with_MCP.md -->
 
 <!-- BEGIN 11_Chapter_09_Multi_Agent_Workflows_and_Human_Approval.md -->
@@ -1727,6 +1793,14 @@ WidgetWare is now a complete bounded agent system. It can research, qualify, rev
 ## Bridge to Chapter 10
 
 The final chapter asks whether the system is actually good enough. We will build evaluation datasets, inspect trajectories, test failure conditions, add observability, and deploy the integrated application.
+
+## Exercises
+
+1. §9.1 lists six reasons a single agent's broad responsibility becomes a problem. Using your own qualification-and-research code as it stood at the end of Chapter 8, before this chapter's split, identify which one or two of those six reasons had already started to appear, even if you hadn't named the problem yet.
+2. §9.3 requires the state machine to exist before the agent prompts. Draw, on paper, the ten states from §9.3, then trace by hand what happens to an account that fails research twice before succeeding on a third attempt — which states does it pass through, and how many times does it revisit `RESEARCHING`?
+3. §9.5 says the outreach agent must not independently browse for more persuasive facts after review, calling that a bypass of the evidence gate. Describe a realistic, well-intentioned reason a future engineer might be tempted to add exactly that shortcut, and what you would say to talk them out of it.
+4. §9.7 lists seven partial-failure modes. Pick the one your workflow currently handles by restarting more of the process than §9.7 says it should, and describe the smallest change that would let it resume from the actual point of failure instead.
+5. §9.6 insists approval is "a workflow state and policy decision," not an instruction asking politely. Find the exact line of code — or the exact absence of one — that makes it *structurally* impossible to skip approval in your workflow, not just unlikely. If you cannot point to one, that is the gap this exercise is meant to surface.
 <!-- END 11_Chapter_09_Multi_Agent_Workflows_and_Human_Approval.md -->
 
 <!-- BEGIN 12_Chapter_10_Evaluate_Deploy_and_Demonstrate.md -->
@@ -1951,6 +2025,14 @@ The reader has completed an inspectable, evaluated, and deployable agent applica
 ## Bridge to Chapter 11
 
 A single evaluated run is not yet a system you can point at a backlog of accounts and trust to work through them. Chapter 11 takes this exact workflow, unchanged, and wraps it in a bounded ADK loop — durable session state, budgets, checkpoints, and an explicit decision after every account — before Book 1 closes.
+
+## Exercises
+
+1. §10.1 lists nine things evaluation should cover beyond the final answer. Pick one of your own past "it works" moments with an agent system, in this course or elsewhere, and check how many of the nine you actually verified versus simply assumed because the final output looked right.
+2. §10.3 requires ten kinds of cases in the golden dataset. Look at your own dataset from the Hands-on Lab and identify which of the ten is currently thinnest or missing, and describe a specific WidgetWare account profile that would fill that gap.
+3. §10.5 says an LLM-as-a-judge should never be the sole authority for high-risk requirements, listing six things that must stay deterministic instead. Pick one of the six and describe, concretely, what a judge model getting it "almost right" would look like — a plausible-sounding but wrong judgment a rubric alone might miss.
+4. §10.8 lists seven release-gate conditions. If you had to ship WidgetWare today under deadline pressure and could honestly satisfy only five of the seven, which two would you refuse to waive, and why those two specifically?
+5. §10.9's five-case demonstration ends with "a trustworthy demonstration shows how the system fails safely." Pick the one of the five cases — success, insufficient-evidence, conflict, safety, approval — you'd most want a skeptical buyer to see first, and justify your choice in terms of what it proves that the success case alone cannot.
 <!-- END 12_Chapter_10_Evaluate_Deploy_and_Demonstrate.md -->
 
 <!-- BEGIN 13_Chapter_11_Loop_Engineering_with_ADK.md -->
@@ -2201,6 +2283,15 @@ WidgetWare can now work through a queue of accounts unattended, within limits it
 ## Bridge to the Book 1 conclusion
 
 The conclusion consolidates what this system can now do across all eleven chapters, and identifies what must change when one bounded, looping application becomes an enterprise agent platform.
+
+## Exercises
+
+1. Using §11.4's list of things `max_iterations` alone doesn't give you, pick a repeating process you already run today — a script, a cron job, a manual routine — and score it against the same list. How many of the seven are actually present?
+2. Using §11.8's five-way decision (CONTINUE, RETRY, STOP, DEFER, ESCALATE), write out, in plain language, what should happen to a WidgetWare account whose research completes successfully but whose qualification cannot be computed because the ICP configuration is missing a required field. Which decision applies, and why not one of the other four?
+3. Run the batch loop from the Hands-on Lab to completion, then interrupt it mid-run on a fresh copy and restart it. Confirm from the session state itself, not from re-reading the code, exactly which accounts were re-processed and which were correctly skipped.
+4. Using §11.10's authority table, audit your own batch loop's code: is there a single line that makes "send outreach" structurally impossible without an approved state, the same way Chapter 9 required for one account — or does the loop's own code introduce a new path around it?
+5. Using §11.11's twelve-item loop-ready checklist, audit your own Hands-on Lab implementation honestly. If you find one item it does not fully satisfy, what would closing that gap require?
+6. §11.2 and §11.3 distinguish the inner agent loop ADK already runs from the outer loop this chapter adds. Before Book 2 Chapter 5 introduces planning, predict whether a planning agent will need a third loop layered on top of these two, or will reuse one of these two loops for a different purpose. Check your prediction once you reach that chapter.
 <!-- END 13_Chapter_11_Loop_Engineering_with_ADK.md -->
 
 <!-- BEGIN 14_Book_1_Conclusion.md -->

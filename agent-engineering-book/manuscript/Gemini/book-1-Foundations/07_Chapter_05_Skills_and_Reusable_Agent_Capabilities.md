@@ -157,3 +157,11 @@ The qualification procedure is now a reusable asset. The agent can apply consist
 ## Bridge to Chapter 6
 
 Chapter 6 replaces ambiguous prose interfaces with typed contracts. This allows workflows, tests, and downstream components to consume agent results safely.
+
+## Exercises
+
+1. §5.3 distinguishes a Skill (how to perform a task) from a tool (doing something outside the model). Take one procedure and one external action from your own domain and confirm you can sort them correctly. Is there anything you currently implement as a tool that is actually a Skill in disguise, or the reverse?
+2. Using §5.5's anatomy, draft only the "Procedure" section — the ordered steps — for a Skill you don't yet have: something you personally do by habit rather than by written rule. Where did you struggle to make step 2 or 3 explicit?
+3. §5.6 (progressive disclosure) argues a Skill should expose a concise description for discovery and load full detail only when selected. Look at the `skill.md` you built in the Hands-on Lab: if a second, unrelated agent had to decide whether this Skill applies to its task, does the discovery description alone give it enough to decide correctly?
+4. §5.7 requires an owner and version for a business Skill. Imagine the ICP thresholds in the qualification Skill change three months from now. Using §5.7's four record-keeping questions, write what that change's record would actually say.
+5. Using §5.4's distinction between a Skill and a workflow, predict which of Chapter 9's five named agents will use the ICP Qualification Skill directly, and which will use a different Skill or none at all. Check your prediction once you reach Chapter 9.

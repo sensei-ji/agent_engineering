@@ -155,3 +155,11 @@ WidgetWare can now produce an inspectable account research brief. Research and q
 ## Bridge to Chapter 9
 
 Chapter 9 introduces specialized agents, typed handoffs, workflow orchestration, partial-failure handling, bounded iteration, and an approval gate before outreach.
+
+## Exercises
+
+1. §8.5 gives four conditions favoring MCP over a function tool. Take the one research source you connected in the Hands-on Lab and argue, honestly, whether MCP was the right call for it under those four conditions — or whether a function tool would have been more honest about what the integration actually is.
+2. §8.6 lists seven controls against untrusted retrieved content. Re-run your prompt-injection test, but change the injected instruction to something more subtle than "ignore your rules" — for example, retrieved text stating a false but plausible employee count as if it were the company's own official figure. Does your evidence pipeline catch a false *fact* as readily as it catches an obvious override attempt?
+3. §8.4 says contradictions should not be resolved by picking the most convenient result. Using your two-conflicting-sources test, write out what "the most convenient result" would have been for a WidgetWare SDR eager to hit quota, and confirm your `ResearchBrief` actually resisted that pull.
+4. §8.2 gives five research questions. Add a sixth, specific to a signal WidgetWare's ICP (Chapter 3) cares about but isn't already covered, and explain what evidence would actually answer it.
+5. §8.3 treats a five-year-old employee count as potentially unusable for a current decision. Pick one evidence item from your `ResearchBrief` and write what "sufficiently current" should mean for that specific kind of fact — a number of days, months, or years — and why.

@@ -114,3 +114,11 @@ WidgetWare can now recognize a returning user and recall relevant, scoped histor
 ## Bridge to Chapter 3
 
 Memory answers "what do we already know about this user." It does not answer "what does the enterprise already know about this account." Chapter 3 connects WidgetWare to retrieval over a real knowledge collection.
+
+## Exercises
+
+1. §2.2 gives examples of what's worth extracting to memory and what's actively risky. Take a real conversation or session log from a system you use and sort five statements from it into "worth remembering," "not worth remembering," and "risky to remember."
+2. §2.3 splits responsibility: the application decides which sessions get submitted; the memory service decides what gets extracted from within them. Describe a scenario where a bug in the *application's* submission decision, not the memory service's extraction, would be the actual root cause of a leaked or wrong memory.
+3. §2.4 says memory is "a hint to verify, not a fact to restate as current." Using a specific stale-memory example from your own life or work — a colleague's role changed and your notes still say the old one — describe what the correct agent behavior should be the moment fresh evidence contradicts it.
+4. §2.5 requires that memory scoped to a revoked user become unreachable, not merely unreferenced. What is the difference between those two, concretely, in terms of what a determined but unauthorized query could still retrieve?
+5. §2.6 requires testing scope enforcement with an actual cross-user query, not an assertion that scoping exists. Write, in plain language, the exact query and the exact wrong result that test needs to attempt and fail to get, in order to actually prove anything.

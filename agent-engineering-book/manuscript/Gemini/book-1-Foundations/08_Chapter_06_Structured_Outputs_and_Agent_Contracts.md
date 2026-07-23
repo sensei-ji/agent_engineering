@@ -157,3 +157,11 @@ The WidgetWare qualification agent now produces a machine-validated result that 
 ## Bridge to Chapter 7
 
 Chapter 7 gives the system controlled capabilities. The agent will retrieve account data through narrow tools whose inputs, permissions, errors, and outputs are as carefully engineered as the agent contract.
+
+## Exercises
+
+1. Take the prose result "Acme looks like a strong opportunity" from §6.1 and write out the six things §6.1 says software cannot reliably determine from it. Now look at your own `QualificationResult` output from the Hands-on Lab — does it actually answer all six?
+2. §6.3 warns that a confidence value is a self-assessment, not a calibrated probability. Design one deterministic rule, in plain language, that would prevent your system from treating a 0.95 confidence score as sufficient justification on its own, mirroring the four rules in §6.3.
+3. §6.5 lists six pipeline steps ending in "fail safely if the contract remains invalid." Deliberately feed your qualification agent an account likely to produce a borderline or malformed result. Does it reach `BLOCKED`, or does it silently produce something plausible-looking instead?
+4. Using §6.7's handoff-design principle — sufficient but not bloated — look at your `QualificationResult` contract and identify one field a downstream agent genuinely needs that's currently missing, and one field that's present but that none of Chapter 9's agents will actually use.
+5. §6.6 requires two separate layers: contract tests and evaluation cases. Write one evaluation case, in plain language — the account, the expected reasoning — that a contract test could never catch, because the schema would validate a wrong answer just as easily as a right one.

@@ -162,3 +162,12 @@ The agent can now obtain trusted internal data through controlled interfaces. It
 ## Bridge to Chapter 8
 
 Chapter 8 builds an evidence-backed research pipeline and introduces MCP as a standardized integration mechanism. The focus is provenance, source quality, and resistance to malicious or irrelevant content.
+
+## Exercises
+
+1. §7.1 lists when a tool is appropriate. Take one capability from your own domain currently implemented as a tool and check it against the list — does it actually need to be a tool, or could it be a deterministic function called directly, per §7.1's closing caveat?
+2. §7.2 says a model selects tools by name and description alone. Write the description you'd give `get_account_profile` if you were deliberately trying to get an agent to misuse it — call it with the wrong account, or use it when it shouldn't — then write the corrected version and identify exactly what changed.
+3. §7.5 (least privilege) asks you to imagine a read-only tool sharing credentials with a write-capable one. Audit one tool from your Hands-on Lab: what is the most damaging action its current credentials would actually permit, whether or not the tool's code ever performs that action?
+4. §7.6 lists eight tool failure modes. Pick the one your `get_account_profile` implementation currently handles worst, or wouldn't distinguish from success, and describe what a caller sees today versus what §7.6 says they should see.
+5. §7.7 says Book 1 "intentionally omits the send-message tool." Predict what each of §7.7's five side-effect controls — idempotency, explicit confirmation, audit information, narrow scope, rollback — would concretely mean the day a send tool is finally added.
+6. §7.8 requires testing tools independently from agents, then testing the agent with mocks. Run your qualification agent with a mock `get_account_profile` that returns a `permission_denied` error. Does the agent handle it the way §7.6 requires, or does it do something the chapter would call fabrication?

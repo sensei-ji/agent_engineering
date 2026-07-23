@@ -84,3 +84,11 @@ WidgetWare is now a governed participant in the organization's agent ecosystem �
 ## Bridge to Chapter 9
 
 Chapter 9 builds that operational picture — logs, traces, metrics, and cost accounting across a distributed, multi-agent system, not just the deployment health checks Book 1, Chapter 10 already covered.
+
+## Exercises
+
+1. §8.1 says an Agent Registry solves a problem a team's own documentation cannot: helping a *different* team decide whether it's safe to call into your agent. Describe a real cross-team integration decision you've had to make with only informal documentation, and what specifically would have been faster or safer with a queryable registry entry instead.
+2. §8.3 argues Model Armor and Book 1's application-level defenses are "not redundant" — one is specific, one is generic. Describe a prompt-injection attempt that application-level defense would catch but gateway-level defense would miss, and one that would be the reverse.
+3. §8.4 distinguishes "who is allowed to call what" (identity, gateway) from "can data cross a boundary at all" (VPC Service Controls). Describe a scenario where an identity and gateway policy are both configured correctly, and the request is fully authorized, but VPC Service Controls is the only thing that should stop it.
+4. §8.5 lists four governance requirements that sit above any single team's release gates. If your own team were under deadline pressure, which of the four would be most tempting to treat as "we'll register it properly next sprint" — and what §8.6 says about why that temptation is exactly the case governance can't self-certify.
+5. Using §8.2's chokepoint argument, describe what a "misconfigured or compromised agent" routing around the gateway would actually look like in practice — what specific technical shortcut would it be taking, and what would have to be true of the network or IAM configuration for that shortcut to actually work?

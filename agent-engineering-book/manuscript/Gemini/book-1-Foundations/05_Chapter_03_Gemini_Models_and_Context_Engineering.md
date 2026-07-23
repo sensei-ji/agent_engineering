@@ -177,3 +177,11 @@ The project now has a deliberate model and context architecture. The next step i
 ## Bridge to Chapter 4
 
 Chapter 4 introduces the core ADK abstractions and builds the first WidgetWare agent. The emphasis remains narrow: one agent, one responsibility, clear inputs, observable events, and no external tools yet.
+
+## Exercises
+
+1. §3.2 separates context into five layers. Take a system prompt you've written for a real task and sort its contents into these five layers. How much of it turns out to actually be business context or task context masquerading as a system instruction?
+2. §3.3's `icp.yaml` example states policy as data, not prose. Pick one rule from your own domain that you currently only state in a prompt (for example, "prefer accounts in these industries") and write it the way §3.3 would — as a value deterministic code can read, not a sentence a model has to reparse every time.
+3. §3.6 lists seven context quality failures. Pick the one most likely to occur unnoticed in a system you maintain, and describe what evidence would tell you it was actually happening — a log line, a test that should exist but doesn't, or a specific pattern of complaint.
+4. Using §3.5's five evidence categories — verified fact, derived fact, inference, unknown, conflict — take three claims from a real piece of business writing (an email, a report, a slide) and classify each one. Was any inference originally presented with the confidence of a verified fact?
+5. §3.4 warns against aspirational instructions such as "always be accurate." Find one aspirational instruction in a prompt you've written and rewrite it as an observable requirement, the way §3.4 rewrites "always be accurate" into an explicit citation rule.

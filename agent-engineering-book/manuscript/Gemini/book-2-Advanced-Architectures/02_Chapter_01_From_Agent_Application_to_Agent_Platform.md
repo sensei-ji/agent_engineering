@@ -114,3 +114,11 @@ The repository now has an explicit architectural map. Nothing has been built yet
 ## Bridge to Chapter 2
 
 The knowledge plane is the most immediately visible gap: WidgetWare cannot yet remember a user from one session to the next, or tell two different users apart. Chapter 2 fixes that first, because every later chapter — retrieval, planning, collaboration — assumes the system already knows whose context it is operating in.
+
+## Exercises
+
+1. Using §1.2's five planes, take a system you actually maintain and sort its components into the same five categories. Which plane, if any, turns out to have no clear owner at all?
+2. §1.1 distinguishes "correct at one scale" from "correct at another scale." Describe one feature of your own that was proven correct in a small test but that you have never actually verified under concurrent, multi-tenant load. What is the smallest test that would tell you the truth?
+3. §1.4 lists five WidgetWare business rules that must not change at platform scale. Pick one and describe a realistic scale-pressure scenario — a deadline, a cost target, an incident — under which a team might be tempted to quietly relax it, and what the honest alternative response should be instead.
+4. §1.5 lists five new failure modes that are structurally impossible in a single-user system. Pick the one you find least intuitive, and explain in your own words why a single-user, Book 1-style system genuinely could not have this problem, no matter how buggy its code was.
+5. Using §1.3's plane-to-chapter mapping table, before reading the rest of Book 2, predict which chapter you expect to be hardest to get right for a system you've actually worked on, and why. Revisit this prediction once you have read all ten chapters.

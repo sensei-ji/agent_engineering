@@ -102,3 +102,11 @@ WidgetWare can now delegate a real capability to an independently deployed agent
 ## Bridge to Chapter 7
 
 Once WidgetWare calls agents it doesn't own, and once its own agents run unattended across many users, "which identity is acting" stops being obvious. Chapter 7 separates user, application, and agent identity, and applies least privilege to all three.
+
+## Exercises
+
+1. §6.1 distinguishes a tool — call it, get data, done — from a peer agent — hand it a task, it reasons on its own. Take an integration you've built or used and decide, honestly, which one it actually is, and whether it was built with the right protocol for what it actually is.
+2. §6.2 compares an Agent Card's description to a Skill's discovery description (Book 1, Chapter 5.6). Write the Agent Card description you'd give WidgetWare's own qualification capability if a different team's agent needed to decide, from the card alone, whether to delegate a task to it.
+3. §6.4 says a remote agent's high-confidence claim is "not the same claim as a `support_type` your own evidence-policy enforcer has actually checked." Describe what your validation code should actually do the moment a remote agent returns a claim with no citation at all.
+4. §6.5 poses a sharper version of Book 1, Chapter 9.1's question, because remote collaboration adds real operational cost. Pick a capability you're tempted to delegate to a remote agent and argue against yourself: what would it cost to build locally instead, and is that cost actually higher than the coordination overhead of depending on someone else's uptime?
+5. §6.3 notes that JSON-RPC, gRPC, and REST are all valid A2A bindings — a transport choice, not a design decision. What would actually change in your integration code if the remote enrichment agent switched bindings tomorrow, and what, if anything, should not have to change?

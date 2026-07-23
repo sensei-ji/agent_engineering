@@ -245,3 +245,12 @@ WidgetWare can now work through a queue of accounts unattended, within limits it
 ## Bridge to the Book 1 conclusion
 
 The conclusion consolidates what this system can now do across all eleven chapters, and identifies what must change when one bounded, looping application becomes an enterprise agent platform.
+
+## Exercises
+
+1. Using §11.4's list of things `max_iterations` alone doesn't give you, pick a repeating process you already run today — a script, a cron job, a manual routine — and score it against the same list. How many of the seven are actually present?
+2. Using §11.8's five-way decision (CONTINUE, RETRY, STOP, DEFER, ESCALATE), write out, in plain language, what should happen to a WidgetWare account whose research completes successfully but whose qualification cannot be computed because the ICP configuration is missing a required field. Which decision applies, and why not one of the other four?
+3. Run the batch loop from the Hands-on Lab to completion, then interrupt it mid-run on a fresh copy and restart it. Confirm from the session state itself, not from re-reading the code, exactly which accounts were re-processed and which were correctly skipped.
+4. Using §11.10's authority table, audit your own batch loop's code: is there a single line that makes "send outreach" structurally impossible without an approved state, the same way Chapter 9 required for one account — or does the loop's own code introduce a new path around it?
+5. Using §11.11's twelve-item loop-ready checklist, audit your own Hands-on Lab implementation honestly. If you find one item it does not fully satisfy, what would closing that gap require?
+6. §11.2 and §11.3 distinguish the inner agent loop ADK already runs from the outer loop this chapter adds. Before Book 2 Chapter 5 introduces planning, predict whether a planning agent will need a third loop layered on top of these two, or will reuse one of these two loops for a different purpose. Check your prediction once you reach that chapter.

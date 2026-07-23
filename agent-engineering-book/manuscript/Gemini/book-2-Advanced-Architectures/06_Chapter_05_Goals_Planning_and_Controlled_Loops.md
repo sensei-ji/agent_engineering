@@ -112,3 +112,11 @@ WidgetWare can now decompose an open-ended goal into a bounded, inspectable plan
 ## Bridge to Chapter 6
 
 The Territory Planning Agent still does all of its own work. Chapter 6 asks what changes when part of a plan's work is better delegated to an agent WidgetWare's own team did not build — and how two independently deployed agents discover, trust, and collaborate with each other at all.
+
+## Exercises
+
+1. §5.1 asks whether an apparently open-ended request is genuinely open-ended or "a fixed workflow wearing an open-ended goal as a disguise." Take a request from your own domain that sounds like it needs a planning agent, and check: does it actually decompose into the same five or six steps every time?
+2. §5.2 says `PlanReActPlanner` is preferred over `BuiltInPlanner` specifically because it produces an inspectable plan artifact, not because it's more sophisticated. Describe a task where you'd make the opposite choice, and be honest about what you'd be giving up by choosing inspectability.
+3. §5.4 requires budgets on re-planning iterations, not just on the final execution. Using the `TerritoryPlan` contract from §5.3, describe what should happen when the planner has already re-planned twice and proposes a fourth, materially identical plan.
+4. §5.5 distinguishes "refining an approach" from "spinning." Describe, concretely, what evidence in a replan log would convince you a plan is genuinely converging versus what evidence would convince you it isn't — using a real progress signal, not a vibe.
+5. §5.6 applies the same five-way decision — CONTINUE, RETRY, STOP, DEFER, ESCALATE — to a plan instead of a single account. Write out which of the five applies when a planning agent's step depends on a remote agent (Chapter 6) that is currently unavailable, and why not one of the other four.

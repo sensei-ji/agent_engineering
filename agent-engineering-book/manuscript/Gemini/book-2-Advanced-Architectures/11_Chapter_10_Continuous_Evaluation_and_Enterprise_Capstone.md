@@ -124,3 +124,11 @@ WidgetWare SDR Lab is now a governed, observable, continuously evaluated enterpr
 ## Bridge to the Book 2 conclusion
 
 The conclusion consolidates what changed between an application and a platform, restates the habits worth carrying into whatever comes next, and closes the WidgetWare story this series has followed since Chapter 1.
+
+## Exercises
+
+1. §10.1 argues a release gate is "a snapshot," not an ongoing guarantee, because the system keeps changing underneath it. List three things about WidgetWare that could change after a release gate passes, each from a different chapter of Book 2, that the original gate could not have anticipated.
+2. §10.3 says a trajectory that reaches the right answer through a path that skipped evidence validation "got lucky," not passed. Describe a plausible way WidgetWare could produce a correct qualification while still skipping a required check somewhere in the pipeline — and what a trajectory-level score would catch that a final-answer-only score would miss.
+3. §10.4 requires tracking judge-versus-human agreement as its own visible metric. If that agreement rate started drifting downward over a month, what are two different underlying causes it could indicate — one about the judge, one about the system itself — and how would you tell them apart?
+4. §10.5 warns that a monitor which fires and is routinely ignored "trains the organization to distrust its own alerts." Describe a monitor you'd actually be tempted to silence rather than fix, and what the honest fix would look like instead.
+5. §10.7 requires an honest maturity assessment naming real limitations. Using the enterprise capstone's eleven-item list in §10.6, pick one capability and write, in one paragraph, the honest limitation a marketing version of this same capstone would be tempted to leave out.

@@ -101,3 +101,11 @@ WidgetWare's identities are now separated, scoped, and auditable. Individual com
 ## Bridge to Chapter 8
 
 Chapter 8 adds that organization-wide view — registering agents so they can be discovered and governed centrally, and containing what a misbehaving or compromised one can actually do.
+
+## Exercises
+
+1. §7.1 separates user, application, and agent (workload) identity. Take an action your own system performs today and identify which of the three identities it currently runs under — and whether that's actually the right one, per §7.2's "acting on behalf of, not acting as" distinction.
+2. §7.3 distinguishes Google Cloud's Agent Identity from a general-purpose service account specifically by its dual-identity audit logging. Describe an incident-investigation scenario where having both the agent's and the user's identity in the same log entry would have saved real time, versus having only one or the other.
+3. §7.4 says a role granted at the project level "when a dataset-level grant would do is a standing risk, not a convenience." Audit one permission grant in a system you maintain and check: is it scoped as narrowly as it could be, or as narrowly as was fastest to set up?
+4. §7.5 argues long-lived credentials are a standing liability even when they are never actually leaked. What is the difference in actual risk between a credential that was leaked and one that merely could have been, but wasn't rotated in two years?
+5. §7.6 asks what identity a delegated call to a remote agent (Chapter 6) should carry. Using §7.1's three identities, write out specifically what should be in that delegated credential, and what should deliberately be left out.

@@ -171,3 +171,11 @@ The project now has an inspectable engineering harness. No business intelligence
 ## Bridge to Chapter 3
 
 The next chapter defines how Gemini will receive instructions and business context. The goal is not to create a larger prompt. It is to design an explicit context architecture that keeps stable policies, task data, and retrieved evidence separate.
+
+## Exercises
+
+1. Following §2.2's disciplined cycle, give Antigravity one deliberately unrestricted instruction ("build the entire application") on a throwaway branch, and separately give it a properly scoped task per §2.6's example. Compare what each produces and how long it actually took you to review each one with confidence.
+2. §2.4 distinguishes `README.md` from `SPEC.md`. Take a project you maintain today and check whether it has a document playing SPEC's role — required behavior, prohibited behavior, state transitions, completion criteria — or whether that information only lives in your head or in code comments. Write the single most important missing sentence such a `SPEC.md` would need.
+3. §2.5's development instructions include "do not implement external message sending in Book 1." Using §2.7's least-privilege list, write the equivalent hard boundary you would set for a coding agent working on a codebase you maintain — one instruction whose violation would be serious enough that you'd want it caught in every review, not just remembered.
+4. §2.7 calls the development agent "a powerful collaborator, not an unquestioned authority." Recall (or imagine) a specific moment a coding agent proposed a change you almost accepted without reading closely. What in the diff should have made you slow down?
+5. Using §2.3's repository structure, predict which directory each of the next four chapters' work will land in — `config/`, `src/widgetware_sdr/`, `skills/`, `tests/` — before reading them. Check your predictions once you reach Chapter 5.
