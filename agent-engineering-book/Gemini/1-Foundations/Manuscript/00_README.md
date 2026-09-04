@@ -22,8 +22,15 @@ This directory contains the manuscript blueprint for Book 1. Each major part of 
 13. `13_Chapter_11_Loop_Engineering_with_ADK.md`
 14. `14_Book_1_Conclusion.md`
 15. `15_Introduction_to_Book_2.md`
-16. `16_appendix-antigravity-ecosystem.md`
-17. `17_appendix-observability-traces-and-agent-platform.md`
+
+## Appendices
+
+Appendices are numbered independently of the chapters, and their internal
+sections carry the appendix number: `A1.3` is section 3 of Appendix 01.
+
+1. `Appendix_01_Antigravity_Ecosystem.md`
+2. `Appendix_02_Observing_a_Multi_Agent_System.md`
+3. `Appendix_03_Google_Cloud_Project_Setup.md`
 
 ## The continuous lab
 

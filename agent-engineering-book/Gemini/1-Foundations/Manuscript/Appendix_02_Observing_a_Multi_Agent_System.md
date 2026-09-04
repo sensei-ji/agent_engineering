@@ -1,4 +1,4 @@
-# Appendix: Observing a Multi-Agent System
+# Appendix 02: Observing a Multi-Agent System
 
 ## What this appendix is
 
@@ -17,7 +17,7 @@ The lessons transfer. The specific span names do not.
 
 ---
 
-## A.1 An event is not a span
+## A2.1 An event is not a span
 
 The first confusion to clear up, because two different things both look like
 "the list of what happened".
@@ -40,7 +40,7 @@ comes from the gap between them.
 
 ---
 
-## A.2 Reading a local trace
+## A2.2 Reading a local trace
 
 The application ran with ADK's native OpenTelemetry export enabled, sending spans
 straight to Cloud Trace with no collector in between.
@@ -91,7 +91,7 @@ look for the escape hatch firing.
 
 ---
 
-## A.3 What an event recording loses
+## A2.3 What an event recording loses
 
 ADK session events can be exported as JSONL — one event per line, portable,
 inspectable without any backend. It is a genuinely useful artifact. It is also a
@@ -143,7 +143,7 @@ depends entirely on who you trust to have produced it.
 
 ---
 
-## A.4 Content capture: two systems, opposite defaults
+## A2.4 Content capture: two systems, opposite defaults
 
 This section exists because the intuitive assumption is wrong in both directions.
 
@@ -180,7 +180,7 @@ direction of the error depends on which one you learned first.
 
 ---
 
-## A.5 The deployed picture
+## A2.5 The deployed picture
 
 Deploying the identical application to Agent Platform produces the same
 underlying trace — the console even links out to Cloud Trace — but frames it
@@ -226,7 +226,7 @@ the session total.
 
 ---
 
-## A.6 Why the last agent costs the most
+## A2.6 Why the last agent costs the most
 
 Expanding to individual model calls turns the cost table into a finding.
 
@@ -265,7 +265,7 @@ attribution, which is precisely what the deployed Span view provides.
 
 ---
 
-## A.7 Field notes
+## A2.7 Field notes
 
 Findings from getting all of the above working. Each cost real time to diagnose.
 
@@ -317,7 +317,7 @@ best-effort convenience, not the destination.
 
 ---
 
-## A.8 A reading checklist
+## A2.8 A reading checklist
 
 For any trace from a multi-agent system:
 
