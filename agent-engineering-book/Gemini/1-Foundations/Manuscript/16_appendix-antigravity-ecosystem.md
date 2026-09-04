@@ -178,6 +178,8 @@ The overview describes several curated Google integrations:
 - **Science** skills for biology and chemistry workflows,
 - **AGY SDK** skills that help developers build better agents.
 
+A sixth integration matters enough to the WidgetWare build to get its own section: **Stitch**, the Gemini-powered design surface that produces the reviewer-facing screens and their design system. See A.12.
+
 ![The Antigravity ecosystem connected to its documented Google integrations.](images/antigravity-integrations-landscape.png)
 
 *Figure A.12 — Curated integrations increase real-world usefulness.*
@@ -239,13 +241,93 @@ This illustrates one of the strengths of the ecosystem model: different users ca
 
 ---
 
-## A.12 Choosing the Right Surface
+## A.12 Designing the WidgetWare Front-End with Stitch
+
+Two earlier sections describe something the SDR system cannot run without: **visual artifacts** a reviewer can inspect (A.6) and an **approval gate** a human passes work through (A.7). Both imply a screen. Neither says where that screen comes from.
+
+**Stitch** is Google Labs' answer to that question. It is a free AI design surface at `stitch.withgoogle.com` that generates and iterates on user interfaces with Gemini. Standard mode runs on Gemini 2.5 Flash and experimental mode on Gemini 2.5 Pro, each with its own monthly generation allowance — roughly 350 and 50 at the time of writing. That is comfortable for a course and worth re-checking before a workshop depends on it.
+
+### What goes in, and what comes out
+
+Stitch accepts more than a prompt:
+
+- a **prose description** of the screen and who uses it;
+- an **image** — a screenshot, a wireframe, a photograph of a whiteboard;
+- a **URL**, from which Stitch extracts an existing design system so that new screens match a product that already exists; and
+- **voice**, for critique and revision while the canvas is open.
+
+What it produces is the part that matters for this book:
+
+- **multi-screen designs on an infinite canvas**, with follow-on screens generated from the interaction flows the first screen implies;
+- **front-end code** — HTML and CSS, Tailwind, and framework targets including React, Vue, Angular, Flutter, and SwiftUI;
+- a **paste into Figma**, for the point where a designer takes the work over;
+- **`DESIGN.md`**, an agent-readable Markdown file carrying the design system — color, type, spacing, component rules — that can be exported to or imported from other tools; and
+- an **MCP server and SDK**, so an agent can retrieve designs directly instead of waiting for a person to export them.
+
+### Why a design tool belongs in an agent-engineering book
+
+The last two outputs are the reason. `DESIGN.md` turns design intent into a text artifact that lives in the same repository as the agent, is reviewed in the same pull request, and is read by Antigravity as context. The MCP server turns Stitch itself into a tool an agent can call, which is exactly the pattern of Chapter 7 and Chapter 8.
+
+Design stops being a handoff document and becomes context. That is the same move this book makes with business rules in Chapter 3 and with evidence in Chapter 8, applied to the interface layer.
+
+### The three WidgetWare screens
+
+The architecture in A.11 needs precisely three human-facing screens:
+
+1. **Prospect Queue** — what is waiting, how old it is, and what the agent already concluded.
+2. **Research Dossier** — the qualification result with its evidence, every claim carrying a visible source.
+3. **Outreach Review** — the drafted message beside that evidence, with the approval decision attached.
+
+A workable starting prompt:
+
+```
+Design three screens for an internal sales tool used by an SDR manager.
+
+Screen 1 - Prospect Queue: a dense table of accounts awaiting review, showing
+company, industry, agent-assigned qualification score, evidence count, and how
+long the item has been waiting. Sortable, scannable, no dashboard chrome.
+
+Screen 2 - Research Dossier: one account in depth. Firmographics, the
+qualification rationale, and a list of findings where every claim shows its
+source link inline. Findings without a source are visibly marked as unsourced.
+
+Screen 3 - Outreach Review: the drafted email on the left, the supporting
+evidence on the right, and three actions: Approve, Edit and approve, and
+Reject with a required reason.
+
+Desktop web. Light and dark. Restrained enterprise styling, no marketing gloss.
+```
+
+From there the loop closes: export `DESIGN.md` into the repository, generate the React and Tailwind for the three screens, and use the Antigravity IDE surface to wire them to the agent. The structured qualification contract from Chapter 6 is what populates the dossier; the rejection reason captured on screen three is what the loop in Chapter 11 consumes on its next pass.
+
+![Stitch generating the WidgetWare reviewer screens, exporting DESIGN.md and front-end code into the repository, and handing them to the Antigravity IDE surface.](images/widgetware-stitch-design-loop.png)
+
+*Figure A.15 — The design loop: prompt to screens, screens to artifacts, artifacts to context.*
+
+### Where Stitch fits in the Seven Steps
+
+Stitch is not the harness, and it is not a surface in the sense A.2 uses the word. It fits in two places:
+
+- **Step 1, Frame the Use Case.** Designing the reviewer's screen forces a decision about what a human must see before approving an outbound message. That is an autonomy-boundary question wearing the costume of a styling question.
+- **Step 5, Orchestrate Workflows.** The approval gate is a screen before it is a code path, and the screen determines what the gate can actually enforce.
+
+There is a third, less obvious placement. A rejection with a written reason is a labeled evaluation example, and the review screen is the instrument that collects it. Designed well, the front-end is not only how humans supervise the agent — it is how the evaluation set in **Step 7** gets built.
+
+### Cautions
+
+- **Generated code is a first draft.** Review it before it merges, on the same principle this appendix applies to every other agent output.
+- **A convincing screen can make a thin dossier look authoritative.** Insist on the citation slot, and render an unsourced claim as visibly unsourced. Design against the failure mode, not around it.
+- **Stitch is a Labs product.** Modes, quotas, and export targets have changed more than once. Verify them before a class session depends on a specific one.
+
+---
+
+## A.13 Choosing the Right Surface
 
 A simple selection guide can help readers decide where to begin.
 
 ![A decision-oriented view that maps common developer needs to the most suitable surface.](images/antigravity-surface-selection-guide.png)
 
-*Figure A.15 — A practical guide for choosing the most suitable product surface.*
+*Figure A.16 — A practical guide for choosing the most suitable product surface.*
 
 A useful rule of thumb is:
 
@@ -258,7 +340,7 @@ In practice, teams may use more than one surface. A developer might explore thro
 
 ---
 
-## A.13 Key Takeaways
+## A.14 Key Takeaways
 
 Five final ideas capture the essence of the Antigravity ecosystem:
 
