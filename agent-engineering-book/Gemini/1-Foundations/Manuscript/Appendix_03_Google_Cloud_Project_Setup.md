@@ -4,7 +4,7 @@
 
 This book runs Gemini through a Google Cloud project. There is no API-key path.
 You need a project, with billing enabled, before you build your first agent in
-Chapter 4. In the live course, you create it in Class 1.
+Chapter 5. In the live course, you create it in Class 1.
 
 **Pick your route:**
 
@@ -47,8 +47,8 @@ Cloud project through Vertex AI — renamed the **Gemini Enterprise Agent
 Platform** in 2026, though the service and its environment variables did not
 change.
 
-An API key is faster to obtain, and this book does not use it. Chapter 10 and
-the two appendices before this one are about *observing* and *deploying*
+An API key is faster to obtain, and this book does not use it. Chapters 12–14
+and the appendices before this one are about *observing* and *deploying*
 agents: traces in Cloud Trace, sessions and evaluation in the Agent Platform
 console, deployment to Agent Engine. None of that exists without a project. Supporting both paths would
 mean two sets of instructions and two sets of failures, so the book supports one.
@@ -90,7 +90,7 @@ Ask whoever administers it for:
 
 Do not ask for Owner or Editor. You do not need them, and a reader who requests
 broad access to run a training exercise is demonstrating exactly the habit
-Chapter 9 argues against.
+Chapter 6 argues against.
 
 ### A3.2.3 An instructor-provisioned lab project
 
@@ -297,7 +297,7 @@ Two habits worth forming:
 1. **Set a budget alert** — Cloud Console → Billing → Budgets & alerts — with a
    threshold well under $300. It costs nothing and converts a surprise into an
    email.
-2. **Delete deployed agents when a chapter ends.** Chapter 10 covers deployment;
+2. **Delete deployed agents when a chapter ends.** Chapter 17 covers deployment;
    what it deploys keeps existing until you remove it.
 
 Current pricing is at `cloud.google.com/vertex-ai/pricing`. Trust that page over
@@ -322,7 +322,7 @@ any figure printed in a book, including this one.
 
 ## A3.8 Checklist
 
-Before Chapter 4 — Class 2 of the live course — all eight of these are true:
+Before Chapter 5—Class 2 of the live course—all eight of these are true:
 
 - [ ] A Google Cloud project exists, and you know its **project ID**
 - [ ] Billing is enabled on it
